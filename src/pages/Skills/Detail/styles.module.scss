@@ -1,0 +1,39 @@
+@import './../../../assets/styles/light-theme.scss';
+
+
+.detail-page-wrap{
+    .title-wrap {
+        border-block-end: 1px solid $border;
+        .title {
+            font-size: 64px;
+            font-weight: 900;
+            text-align: center;
+            padding: 110px 0;
+            border-bottom: 1px solid $border;
+            letter-spacing: 4px;
+            background-attachment: scroll;
+            background-clip: text;
+            background-color: $main-text;
+            background-image: linear-gradient(rgb(0, 0, 0), rgb(78, 78, 78));
+            background-size: auto;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+    }
+    .description {
+        letter-spacing: 1px;
+        line-height: 28px;
+        padding: 25px 0;
+        border-bottom: 1px solid $border;
+    }
+    .chips-wrap {
+        display: flex;
+        flex-wrap: wrap;
+        margin-top: 16px;
+        margin-left: 8px;
+        .chip {
+            margin-right: 5px;
+            margin-top: 5px;
+        }
+    }
+}

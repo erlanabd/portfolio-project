@@ -1,0 +1,47 @@
+@import './../../assets/styles/light-theme.scss';
+
+.card-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    border: 1px solid $border;
+    width: 36px;
+    height: 36px;
+    border-radius: 10px;
+    padding: 10px;
+
+    cursor: help;
+    &:hover {
+        border: 1px solid $border-hover;
+        &::before {
+            content: attr(data-label);
+            position: absolute;
+            top: calc(100% + 5px);
+            left: 70%;
+            height: 20px;
+            width: max-content;
+            height: max-content;
+            padding: 5px 10px;
+            border-radius: 15px;
+            z-index: 10;
+            background-color: $secondary;
+        }
+    }
+    .icon {
+        display: block;
+        min-width: 14.4px;
+        height: 14px;
+        
+        &.company {
+            background: url('./../../assets/icons/company.svg') center center / contain no-repeat;
+        }
+        &.location {
+            background: url('./../../assets/icons/location.svg') center center / contain no-repeat;
+        }
+        &.contract {
+            background: url('./../../assets/icons/contract.svg') center center / contain no-repeat;
+        }
+        
+    }
+}

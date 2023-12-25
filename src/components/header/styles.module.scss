@@ -1,0 +1,76 @@
+.header {
+    display: flex;
+    justify-content: space-between;
+    position: sticky;
+    z-index: 10;
+    &__navbar {
+        display: flex;
+        align-items: center;
+        // justify-content: space-between;
+        
+    }
+    &__list {
+        display: flex;
+        align-items: center;
+        margin: 0 auto;
+        .logo-icon {
+            display: block;
+            width: 28px;
+            height: 28px;
+            background: url('../../assets/icons/logo-icon.svg') center center /contain no-repeat;
+        }
+        .header_text{
+            margin-left: 10px;
+            font-weight: 400;
+            font-size: 14px;
+            
+            // line-height: 20px;
+        }
+    }
+    &__item {
+        list-style-type: none;
+        display: flex;
+        align-items: center;
+        padding: 10px 20px;
+        .header_title-text {
+            font-weight: 700;
+            margin-left: 8px;
+            font-size: 14px;
+            letter-spacing: 1px;
+
+        }
+    }   
+    .header__icons-wrap {
+        margin-left: 45px;
+        .header__icons {
+            margin-right: 20px;
+        }
+    }
+}
+
+
+
+.header__icons {
+    display: block;
+    width: 18px;
+    height: 18px;
+    &.skills-icon {
+        background: url('../../assets/icons/skills-icon.svg') center center/contain no-repeat;
+    }
+    &.projects-icon{ background: url('../../assets/icons/projects-icon.svg') center center/contain no-repeat;}
+    &.experiences-icon{
+        background: url('../../assets/icons/experience-icon.svg') center center/contain no-repeat;
+    }
+    &.education-icon{ background: url('../../assets/icons/education-icon.svg') center center/contain no-repeat;}
+    &.resume-icon{ background: url('../../assets/icons/resume-icon.svg') center center/contain no-repeat;}
+    &.search-icon{
+        background: url('../../assets/icons/search-icon.svg') center center/contain no-repeat;
+    }
+    &.light-icon{
+        background: url('../../assets/icons/sun-icon.svg') center center/contain no-repeat;
+    }
+}
+
+.header__icons-wrap {
+    display: flex;
+}

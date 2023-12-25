@@ -1,0 +1,28 @@
+// color-scheme: light;
+@import './colors.scss';
+
+$main: $light-0;
+$main-hover: $light-1;
+$secondary: $light-1;
+$secondary-hover: $light-2;
+$tertiary: $light-2;
+$tertiary-hover: $light-3;
+$accent: $light-3;
+$accent-hover: $light-4;
+$main-text: $dark-0;
+$main-text-hover: $dark-1;
+$secondary-text: $dark-1;
+$secondary-text-hover: $dark-2;
+$tertiary-text: $dark-2;
+$tertiary-text-hover: $dark-3;
+$accent-text: $dark-3;
+$accent-text-hover: $dark-4;
+$border: $light-1;
+$border-hover: $dark-8;
+$main-60: $light-0-60;
+$code-keyword: $code-keyword-light;
+$code-string: $code-string-light;
+$code-function: $code-function-light;
+$code-constant: $code-constant-light;
+$code-operator: $code-operator-light;
+$link: $link-dark;

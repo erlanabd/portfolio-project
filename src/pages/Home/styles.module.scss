@@ -1,0 +1,73 @@
+@import './../../assets/styles/light-theme.scss';
+
+.home-page-wrap {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    .info-wrap {
+        max-width: 653px;
+        width: 100%;
+        margin: 130px 0;
+
+        .title {
+            margin: 5px 0;
+            background-attachment: scroll;
+            background-clip: text;
+            background-color: $main-text;
+            background-image: linear-gradient(rgb(0, 0, 0), rgb(78, 78, 78));
+            background-size: auto;
+            display: block;
+            font-size: 48px;
+            font-weight: 900;
+            letter-spacing: 4px;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .main-info {
+            font-size: 19px;
+            color: $tertiary-text;
+            font-weight: 200;
+            letter-spacing: 1px;
+            width: 653px;
+        }
+        .icons-wrap {
+            display: flex;
+            align-self: center;
+            justify-content: flex-start;
+            padding: 15px 0;
+            .icon {
+                display: block; 
+                width: 20px;
+                height: 20px;
+                fill: #3E3E3E;
+                margin-right: 8px;
+                &.github-icon {
+                    background: url('./../../assets/icons/github-logo.svg') center center / contain no-repeat;
+                 }
+                 &.linkedin-icon{
+                    background: url('./../../assets/icons/linkedin-logo.svg') center center / contain no-repeat;  
+                }
+                &.twitter-icon{
+                    background: url('./../../assets/icons/twitter-logo.svg') center center / contain no-repeat;
+                }
+                &.stackoverflow-icon {
+                    background: url('./../../assets/icons/stackoverflow-logo.svg') center center / contain no-repeat;
+                }
+                &.mail-icon{
+                    background: url('./../../assets/icons/email-logo.svg') center center / contain no-repeat;
+                }
+                &.youtube-icon{
+                    background: url('./../../assets/icons/youtube-logo.svg') center center / contain no-repeat;
+                }
+                &.facebook-icon{
+                    background: url('./../../assets/icons/facebook-logo.svg') center center / contain no-repeat;
+                }
+            }
+        }
+      
+    }
+    
+   
+    .slider {
+    }
+}

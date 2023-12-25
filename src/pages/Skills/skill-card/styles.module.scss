@@ -1,0 +1,35 @@
+@import "./../../../assets/styles/light-theme.scss";
+@import "./../../../assets/styles/colors.scss";
+.skill-card {
+    position: relative;
+    overflow: hidden;
+    .title {
+        color: $tertiary-text;
+        cursor: pointer;
+        font-weight: 400;
+    }
+    .image-wrap {
+        position: absolute;
+        top: 0;
+        right: 0;
+        height: 75px;
+        width: 30%;
+        img {
+            display: block;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        &::before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            background: linear-gradient(90deg,$main 0%,$main 60%,$main-60 100%),no-repeat right 40%/40%;
+            opacity: 0.8;
+        }
+        
+    }
+}

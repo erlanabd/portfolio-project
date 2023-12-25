@@ -1,0 +1,29 @@
+@import './../../assets/styles/light-theme.scss';
+
+.card-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    border: 1px solid $border;
+    width: 28px;
+    height: 28px;
+    padding: 5px;
+    border-radius: 10px;
+    &:hover {
+        border: 1px solid $border-hover;
+        &::before {
+            content: attr(data-label);
+            position: absolute;
+            top: calc(100% + 5px);
+            left: 70%;
+            height: 20px;
+            width: max-content;
+            height: max-content;
+            padding: 5px 10px;
+            border-radius: 15px;
+            z-index: 10;
+            background-color: $secondary;
+        }
+    }
+}

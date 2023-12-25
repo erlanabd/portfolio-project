@@ -1,0 +1,9 @@
+.skills-page {
+    .skills-list {
+        margin-top: 70px;
+        display: grid;
+        grid-template-columns: repeat(3, 300px);
+        gap: 20px;
+        justify-content: center;
+    }
+}

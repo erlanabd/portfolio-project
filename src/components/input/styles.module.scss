@@ -1,0 +1,19 @@
+@import './../../assets/styles/light-theme.scss';
+
+.input-wrap {
+    .input {
+        display: block;
+        width: 100%;
+        border: 1px solid $border;
+        border-radius: 15px;
+        font-size: 19px;
+        padding: 10px 20px;
+        transition-duration: .25s;
+        outline: unset;
+        &:focus {
+            border: 1px solid $border-hover;
+            background-color: $main-hover;
+        }
+
+    }
+}

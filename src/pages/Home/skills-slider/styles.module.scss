@@ -1,0 +1,49 @@
+@import './../../../assets/styles/light-theme.scss';
+
+.slider-wrap {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    
+    .slider-nav-button {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-width: 25px;
+        height: 25px;
+        border: 1px solid $border;
+        background-color: transparent;
+        border-radius: 50%;
+        &:hover {
+            border: 1px solid $border-hover;
+        }
+        &.left {
+
+        }
+        &.right {
+           transform: rotate(180deg);
+        }
+    }
+    .slider {
+        width: 200px;
+        &__item {
+            // margin: 0 15px;
+            .img-wrap {
+                width: 150px;
+                height: 150px;
+                img {
+                    display: block;
+                    width: 100%;
+                    height: 100%;
+                    object-fit: contain;
+                    margin-left: 25px;
+                }
+            }
+            .title {
+                text-align: center;
+                margin-top: 20px;
+                margin-left: 50px;
+            }
+        }
+    }
+}
