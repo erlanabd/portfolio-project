@@ -4,15 +4,20 @@ import { Link } from "react-router-dom";
 import styles from "./styles.module.scss";
 
 const Chip = (props) => {
-  const { label, isActive, className, asLink, icon } = props;
+  const { label, isActive, className, asLink, icon, target, marginBottom } = props;
   const classes = clsx(styles["chip-wrap"], {
     [styles["active"]]: isActive,
+    [className]: className,
+    [styles['chip-wrap-mb']]: marginBottom
+  });
+
+  const labelClasses = clsx(styles["label"], {
     [className]: className,
   });
 
   const renderLabel = () => {
     return (
-      <span className={styles["label"]}>
+      <span className={labelClasses}>
         {icon && (
           <div className={styles["icon-wrap"]}>
             <img src={icon} alt={label} />
@@ -25,7 +30,7 @@ const Chip = (props) => {
 
   if (asLink) {
     return (
-      <Link to={asLink} className={classes}>
+      <Link target={target} to={asLink} className={classes}>
         {renderLabel()}
       </Link>
     );

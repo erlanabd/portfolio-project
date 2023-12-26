@@ -24,6 +24,9 @@ const DetailSkill = () => {
     <div key={newData.id} className={styles["detail-page-wrap"]}>
       <div className={styles["title-wrap"]}>
         <h1 className={styles["title"]}>{newData.label}</h1>
+        <div className={styles["image-wrap"]}>
+        <img src={newData.image} alt="Skill logo" />
+      </div>
       </div>
       <p className={styles["description"]}>{newData.description}</p>
       <div className={styles["chips-wrap"]}>

@@ -35,4 +35,7 @@
     &:hover {
         background-color: $main-hover;
     }
+    &.chip-wrap-mb {
+        margin-bottom: 10px;
+    }
 }

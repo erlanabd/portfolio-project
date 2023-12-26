@@ -3,6 +3,10 @@
 .skill-card {
     position: relative;
     overflow: hidden;
+    &:hover {
+        transform: scale(1.007);
+        transition: .1s ease-in-out;
+    }
     .title {
         color: $tertiary-text;
         cursor: pointer;

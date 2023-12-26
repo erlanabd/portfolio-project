@@ -1,11 +1,27 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Chip from "../../components/chip";
 import SearchBar from "../../components/search-bar";
 import ProjectCard from "./project-card";
-import styles from "./styles.module.scss";
+import projectsOperation from "./../../redux/projects/thunk";
 import { PROJECTS_DATA } from "./mock_data";
+import { useDispatch, useSelector } from "react-redux";
+import styles from "./styles.module.scss";
 
 const Projects = () => {
+  const projects = useSelector((state) => state.projects.list);
+  const dispatch = useDispatch();
+  const isLoading = useSelector((state) => state.projects.isFetching);
+
+  const { fetchProjects } = projectsOperation;
+
+  useEffect(() => {
+    dispatch(fetchProjects());
+  }, []);
+
+  if (isLoading) {
+    return <div>Loading ...</div>;
+  }
+
   return (
     <div className={styles["project-wrap"]}>
       <SearchBar
@@ -14,7 +30,12 @@ const Projects = () => {
         onChange={(val) => console.log(val)}
       />
       <div className={styles["chips-wrap"]}>
-        <Chip className={styles["chip"]} onClick label="Typescript" />
+        <Chip
+          asLink={"/skills/ts"}
+          className={styles["chip"]}
+          onClick
+          label="Typescript"
+        />
         <Chip
           asLink={"/skills/sass"}
           className={styles["chip"]}
@@ -28,11 +49,9 @@ const Projects = () => {
           label="Svelte"
         />
       </div>
-      <div className={styles['cards-wrap']}>
-        {PROJECTS_DATA.map((item) => {
-          return <ProjectCard
-          className={styles['card']}
-          project={item} />;
+      <div className={styles["cards-wrap"]}>
+        {projects.map((item) => {
+          return <ProjectCard className={styles["card"]} project={item} />;
         })}
       </div>
     </div>
