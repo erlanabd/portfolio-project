@@ -2,6 +2,9 @@ import {
   GET_PROJECTS_ERROR,
   GET_PROJECTS_REQUEST,
   GET_PROJECTS_SUCCESS,
+  GET_PROJECT_BY_ID_REQUEST,
+  GET_PROJECT_BY_ID_SUCCESS,
+  GET_PROJECT_BY_ID_ERROR,
 } from "./types";
 
 const getProjectsRequest = () => ({
@@ -18,4 +21,29 @@ const getProjectsError = (err) => ({
   payload: err,
 });
 
-export { getProjectsRequest, getProjectsSuccess, getProjectsError };
+
+
+const getProjectRequest = () => ({
+  type: GET_PROJECT_BY_ID_REQUEST,
+});
+
+const getProjectSuccess = (data) => ({
+  type: GET_PROJECT_BY_ID_SUCCESS,
+  payload: data,
+});
+
+const getProjectError = (err) => ({
+  type: GET_PROJECT_BY_ID_ERROR,
+  payload: err,
+});
+
+export {
+  getProjectsRequest,
+  getProjectsSuccess,
+  getProjectsError,
+  
+
+  getProjectRequest,
+  getProjectSuccess,
+  getProjectError,
+};

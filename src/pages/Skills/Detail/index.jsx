@@ -13,7 +13,6 @@ const DetailSkill = () => {
     ...data,
   };
 
-
   const { fetchSkillBySlug } = skillsOperation;
 
   useEffect(() => {
@@ -25,20 +24,23 @@ const DetailSkill = () => {
       <div className={styles["title-wrap"]}>
         <h1 className={styles["title"]}>{newData.label}</h1>
         <div className={styles["image-wrap"]}>
-        <img src={newData.image} alt="Skill logo" />
-      </div>
+          <img src={newData.image} alt="Skill logo" />
+        </div>
       </div>
       <p className={styles["description"]}>{newData.description}</p>
       <div className={styles["chips-wrap"]}>
-        {newData && newData.relatedExperience && newData.relatedExperience.map((chip, idx) => {
-          return (
-            <Chip
-              className={styles["chip"]}
-              icon={chip.image}
-              label={chip.label}
-            />
-          );
-        })}
+        {newData &&
+          newData.relatedExperience &&
+          newData.relatedExperience.map((chip, idx) => {
+            return (
+              <Chip
+                key={chip.id}
+                className={styles["chip"]}
+                icon={chip.image}
+                label={chip.label}
+              />
+            );
+          })}
       </div>
     </div>
   );

@@ -13,8 +13,11 @@ const ProjectCard = (props) => {
   const cardClasses = clsx({
     [className]: className,
   });
+  const handleClick = (e) => {
+    e.stopPropagation();
+  };
   return (
-    <Link className={cardClasses} to={`/projects/${project.id}`}>
+    <Link key={project.id} className={cardClasses} to={`/projects/${project.id}`}>
       <BoxLayout className={styles["project-card-wrap"]}>
         <div className={styles["img-wrap"]}>
           <img src={project.icon} alt="Project" />
@@ -22,7 +25,12 @@ const ProjectCard = (props) => {
         <div className={styles["title-wrap"]}>
           <h6 className={styles["title"]}>{project.name}</h6>
           {project.links.map((link) => (
-            <CardLink to={link.link} label={link.label} />
+            <CardLink
+              key={link.id}
+              to={link.link}
+              onClick={handleClick}
+              label={link.label}
+            />
           ))}
         </div>
         <div className={styles["body"]}>
@@ -40,14 +48,14 @@ const ProjectCard = (props) => {
           {project.skills.map((skill) => {
             return (
               <ChipIcon
+                key={skill.id}
                 className={styles["chip-icon"]}
                 label={skill.label}
                 to={`/skills/${skill.slug}`}
                 icon={skill.image}
               />
-              );
-            })}
-            {console.log(project.skills)}
+            );
+          })}
         </div>
       </BoxLayout>
     </Link>

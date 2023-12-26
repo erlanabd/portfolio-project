@@ -3,7 +3,6 @@ import Chip from "../../components/chip";
 import SearchBar from "../../components/search-bar";
 import ProjectCard from "./project-card";
 import projectsOperation from "./../../redux/projects/thunk";
-import { PROJECTS_DATA } from "./mock_data";
 import { useDispatch, useSelector } from "react-redux";
 import styles from "./styles.module.scss";
 
@@ -51,7 +50,13 @@ const Projects = () => {
       </div>
       <div className={styles["cards-wrap"]}>
         {projects.map((item) => {
-          return <ProjectCard className={styles["card"]} project={item} />;
+          return (
+            <ProjectCard
+              key={item.id}
+              className={styles["card"]}
+              project={item}
+            />
+          );
         })}
       </div>
     </div>
