@@ -84,19 +84,6 @@ const DetailProject = () => {
       </div>
       <div className={styles["screenshot-images-wrap"]}>
         {renderScreenshots()}
-        {/* {project &&
-          project.screenshots &&
-          project.screenshots.map((screenshot) => {
-            return (
-              <div className={styles["screenshot-container"]}>
-                <img
-                  className={styles["screenshot"]}
-                  src={screenshot.image}
-                  alt="screenshot"
-                />
-              </div>
-            )
-          })} */}
       </div>
       {project &&
         (!project.screenshots || project.screenshots.length === 0) && (

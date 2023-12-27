@@ -1,6 +1,12 @@
 @import './../../../assets/styles/light-theme.scss';
 
-.card-wrap {
+.card-box {
+    display: flex;
+    align-items: center;
+    position: relative;
+    
+}
+.card {
     max-width: 47.5%;
     padding: 25px;
     display: flex;
@@ -56,4 +62,18 @@
             }
         }
     }
+}
+.condition-icon-wrap {
+    background-color: #fff;
+    padding: 15px;
+    margin-left: 20px;
+    z-index: 1;
+    position: absolute;
+    top: 50%;
+    left: 45.5%;
+
+}
+.condition-icon {
+    display: block;
+   z-index: 1;
 }
