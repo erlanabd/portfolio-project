@@ -1,17 +1,28 @@
 @import './../../../assets/styles/light-theme.scss';
 
+
 .card-box {
     display: flex;
     align-items: center;
+    justify-content: space-between;
     position: relative;
-    
+    .link {
+        display: block;
+        max-width: 47.5%;
+        width: 100%;
+    }
 }
 .card {
-    max-width: 47.5%;
+    max-width: 100%;
     padding: 25px;
     display: flex;
     margin-top: 67px;
+    margin-right: 2px;
     cursor: pointer;
+    &:hover {
+        transform: scale(1.007);
+        transition: .1s ease-in-out;
+    }
     .img-wrap {
         width: 75px;
         height: 75px;
@@ -66,11 +77,10 @@
 .condition-icon-wrap {
     background-color: #fff;
     padding: 15px;
-    margin-left: 20px;
     z-index: 1;
     position: absolute;
     top: 50%;
-    left: 45.5%;
+    left: 47.5%;
 
 }
 .condition-icon {

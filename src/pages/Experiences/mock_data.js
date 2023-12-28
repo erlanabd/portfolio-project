@@ -15,7 +15,7 @@ export const EXPERIENCE_DATA = [
         type: "location",
       },
       {
-        type: "home",
+        type: "contract",
       },
     ],
     workPeriodFrom: "December 2023",
@@ -37,7 +37,7 @@ export const EXPERIENCE_DATA = [
         type: "location",
       },
       {
-        type: "home",
+        type: "contract",
       },
     ],
     workPeriodFrom: "December 2023",
@@ -66,7 +66,7 @@ export const EXPERIENCE_DATA = [
         type: "location",
       },
       {
-        type: "home",
+        type: "contract",
       },
     ],
     workPeriodFrom: "January 2022",
@@ -79,4 +79,5 @@ export const EXPERIENCE_DATA = [
       SHORT_SKILL_BY_SLUG("html"),
     ],
   },
+  
 ];

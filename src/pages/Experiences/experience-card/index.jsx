@@ -2,70 +2,69 @@ import React from "react";
 import BoxLayout from "../../../components/box-layout";
 import ChipIcon from "../../../components/chip-icon";
 import Exp from "../../../components/exp";
-import noImg from "./../../../assets/images/no-img.svg";
-import jsLogo from "./../../../assets/images/js-logo.png";
-import tsLogo from "./../../../assets/images/ts-logo.png";
 import { ReactComponent as ConditionIcon } from "./../../../assets/icons/condition-point.svg";
 
 import { clsx } from "clsx";
 import styles from "./styles.module.scss";
+import { Link, useParams } from "react-router-dom";
 
 const ExperienceCard = (props) => {
   const { className, data } = props;
+  const { slug } = useParams();
   const cardClasses = clsx(styles["card-box"], {
     [className]: className,
   });
   return (
     <div className={cardClasses}>
-      <BoxLayout className={styles["card"]}>
-        <div className={styles["img-wrap"]}>
-          <img src={data.image} alt="No Img" />
-        </div>
-        <div className={styles["body"]}>
-          <h6 className={styles["title"]}>{data.title}</h6>
-          <div className={styles["exps-wrap"]}>
-            <Exp
-              className={styles["exp"]}
-              value="Company: Self employed"
-              type="company"
-            />
-            <Exp
-              className={styles["exp"]}
-              value="Location: Home"
-              type="location"
-            />
-            <Exp
-              className={styles["exp"]}
-              value="Contract: Self employed"
-              type="contract"
-            />
+      <Link className={styles["link"]} to={`/experiences/${data.name}`}>
+        <BoxLayout className={styles["card"]}>
+          <div className={styles["img-wrap"]}>
+            <img src={data.image} alt="No Img" />
           </div>
-          <div className={styles["date"]}>
-            <span className={styles["date-text"]}>
-              December 2023 - Present · 1 day
-            </span>
+          <div className={styles["body"]}>
+            <h6 className={styles["title"]}>{data.title}</h6>
+            <div className={styles["exps-wrap"]}>
+              {data &&
+                data.types &&
+                data.types.map((type, idx) => {
+                  return (
+                    <Exp
+                      className={styles["exp"]}
+                      value="Company: Self employed"
+                      type={type.type}
+                    />
+                  );
+                })}
+            </div>
+            <div className={styles["date"]}>
+              <span className={styles["date-text"]}>
+                {data.workPeriodFrom} -
+              </span>
+              <span className={styles["date-text"]}> {data.workPeriodTo}</span>
+              <span className={styles["date-text"]}> · {data.duration}</span>
+            </div>
+            <div className={styles["experience"]}>
+              <span className={styles["experience-text"]}>
+                Creating awesome tools for developers.
+              </span>
+            </div>
+            <div className={styles["chip-icons-wrap"]}>
+              {data &&
+                data.skills &&
+                data.skills.map((skill, idx) => {
+                  return (
+                    <ChipIcon
+                      className={styles["icon"]}
+                      label={"Javascript"}
+                      to={"/skills/js"}
+                      icon={skill.image}
+                    />
+                  );
+                })}
+            </div>
           </div>
-          <div className={styles["experience"]}>
-            <span className={styles["experience-text"]}>
-              Creating awesome tools for developers.
-            </span>
-          </div>
-          <div className={styles["chip-icons-wrap"]}>
-            <ChipIcon
-              className={styles["icon"]}
-              label={"Javascript"}
-              to={"/skills/js"}
-              icon={jsLogo}
-            />
-            <ChipIcon
-              className={styles["icon"]}
-              label={"Typescript"}
-              to={"/skills/ts"}
-              icon={tsLogo}
-            />
-          </div>
-        </div>
-      </BoxLayout>
+        </BoxLayout>
+      </Link>
       <div className={styles["condition-icon-wrap"]}>
         <ConditionIcon className={styles["condition-icon"]} />
       </div>

@@ -1,5 +1,4 @@
-import { clsx } from "clsx";
-import React, { useState } from "react";
+import React from "react";
 import SearchBar from "../../components/search-bar";
 import ExperienceCard from "./experience-card";
 import { EXPERIENCE_DATA } from "./mock_data";
@@ -15,9 +14,7 @@ const Experiences = () => {
             <ExperienceCard
               key={card.id}
               data={card}
-              className={
-                 idx % 2 !== 0 ? styles["card-row"] : styles["card"]
-              }
+              className={idx % 2 !== 0 ? styles["card-row"] : styles["card"]}
             />
           );
         })}
