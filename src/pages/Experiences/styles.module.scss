@@ -11,7 +11,7 @@
     }
     .vertical-line {
         position: absolute;
-        top: 7%;
+        top: 5%;
         left: 50%;
         width: 0.5px;
         height: 100%;
@@ -20,9 +20,13 @@
         display: flex;
     }
     
-    .card-row {
+    .card {
         display: flex;
-        flex-direction: row-reverse;
+        flex-direction: row;
     }
 }
 
+.card-row {
+    display: flex;
+    flex-direction: row-reverse;
+}

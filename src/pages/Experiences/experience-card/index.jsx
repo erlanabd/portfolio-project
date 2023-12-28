@@ -11,7 +11,7 @@ import { clsx } from "clsx";
 import styles from "./styles.module.scss";
 
 const ExperienceCard = (props) => {
-  const { className } = props;
+  const { className, data } = props;
   const cardClasses = clsx(styles["card-box"], {
     [className]: className,
   });
@@ -19,10 +19,10 @@ const ExperienceCard = (props) => {
     <div className={cardClasses}>
       <BoxLayout className={styles["card"]}>
         <div className={styles["img-wrap"]}>
-          <img src={noImg} alt="No Img" />
+          <img src={data.image} alt="No Img" />
         </div>
         <div className={styles["body"]}>
-          <h6 className={styles["title"]}>Open Source Developer</h6>
+          <h6 className={styles["title"]}>{data.title}</h6>
           <div className={styles["exps-wrap"]}>
             <Exp
               className={styles["exp"]}

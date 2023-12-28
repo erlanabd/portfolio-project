@@ -17,6 +17,7 @@ const Projects = () => {
     dispatch(fetchProjects());
   }, []);
 
+
   if (isLoading) {
     return <div>Loading ...</div>;
   }
