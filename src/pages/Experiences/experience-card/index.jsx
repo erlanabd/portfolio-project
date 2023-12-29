@@ -15,7 +15,7 @@ const ExperienceCard = (props) => {
     [className]: className,
   });
   return (
-    <div className={cardClasses}>
+    <div key={data.id} className={cardClasses}>
       <Link className={styles["link"]} to={`/experiences/${data.name}`}>
         <BoxLayout className={styles["card"]}>
           <div className={styles["img-wrap"]}>
@@ -29,6 +29,7 @@ const ExperienceCard = (props) => {
                 data.types.map((type, idx) => {
                   return (
                     <Exp
+                      key={type.id}
                       className={styles["exp"]}
                       value="Company: Self employed"
                       type={type.type}
@@ -38,10 +39,8 @@ const ExperienceCard = (props) => {
             </div>
             <div className={styles["date"]}>
               <span className={styles["date-text"]}>
-                {data.workPeriodFrom} -
+                {data.workPeriodFrom} - {data.workPeriodTo} · {data.duration}
               </span>
-              <span className={styles["date-text"]}> {data.workPeriodTo}</span>
-              <span className={styles["date-text"]}> · {data.duration}</span>
             </div>
             <div className={styles["experience"]}>
               <span className={styles["experience-text"]}>

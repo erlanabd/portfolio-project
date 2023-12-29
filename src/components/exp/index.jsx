@@ -3,20 +3,16 @@ import { clsx } from "clsx";
 import styles from "./styles.module.scss";
 
 const Exp = (props) => {
-  const { to, type, value, className } = props;
-  
+  const { to, type, value, className,  } = props;
+
   const classes = clsx(styles["icon"], {
     [styles["company"]]: type === "company",
     [styles["location"]]: type === "location",
     [styles["contract"]]: type === "contract",
-    
   });
-  const linkClasses = clsx(
-    styles['card-link'],
-    {
-      [className]: className
-    }
-  )
+  const linkClasses = clsx(styles["card-link"], {
+    [className]: className,
+  });
   return (
     <a
       // target="_blank"

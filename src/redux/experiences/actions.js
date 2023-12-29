@@ -2,6 +2,9 @@ import {
   GET_EXPERIENCES_ERROR,
   GET_EXPERIENCES_REQUEST,
   GET_EXPERIENCES_SUCCESS,
+  GET_EXPERIENCE_BY_NAME_ERROR,
+  GET_EXPERIENCE_BY_NAME_REQUEST,
+  GET_EXPERIENCE_BY_NAME_SUCCESS,
 } from "./types";
 
 const getExperiencesRequest = () => ({
@@ -16,4 +19,25 @@ const getExperiencesError = (error) => ({
   payload: error,
 });
 
-export { getExperiencesRequest, getExperiencesSucces, getExperiencesError };
+const getExperienceRequest = () => ({
+  type: GET_EXPERIENCE_BY_NAME_REQUEST,
+});
+const getExperienceSuccess = (data) => ({
+  type: GET_EXPERIENCE_BY_NAME_SUCCESS,
+  payload: data,
+});
+const getExperienceError = (error) => ({
+  type: GET_EXPERIENCE_BY_NAME_ERROR,
+  payload: error,
+});
+
+export {
+  getExperiencesRequest,
+  getExperiencesSucces,
+  getExperiencesError,
+
+  
+  getExperienceRequest,
+  getExperienceSuccess,
+  getExperienceError,
+};

@@ -1,6 +1,23 @@
 import { SHORT_SKILL_BY_SLUG } from "../Skills/mock_data";
 import noImg from "./../../assets/images/no-img.svg";
 
+export const EXPERIENCE_BY_NAME = (name) => {
+  const findExperience = EXPERIENCE_DATA.find((exp) => exp.name === name);
+  if (!findExperience) {
+    return {};
+  }
+  return {
+    id: findExperience.id,
+    slug: findExperience.name,
+    image: findExperience.image,
+    title: findExperience.title,
+    types: findExperience.types,
+    duration: findExperience.duration,
+    description: findExperience.description,
+    skills: findExperience.skills,
+  };
+};
+
 export const EXPERIENCE_DATA = [
   {
     id: "0",
@@ -79,5 +96,4 @@ export const EXPERIENCE_DATA = [
       SHORT_SKILL_BY_SLUG("html"),
     ],
   },
-  
 ];

@@ -16,8 +16,8 @@
     max-width: 100%;
     padding: 25px;
     display: flex;
-    margin-top: 67px;
-    margin-right: 2px;
+    margin: 67px 2px 0;
+
     cursor: pointer;
     &:hover {
         transform: scale(1.007);
@@ -35,6 +35,7 @@
     }
     .body {
         margin-left: 20px;
+        max-width: 300px;
         .title {
             margin: 5px 0;
             font-size: 18px;
@@ -52,12 +53,12 @@
         }
         .date {
             margin: 12px 0;
-            .date-text {
-                font-weight: 200;
-                font-size: 14.4px;
-                letter-spacing: 1px;
-                color: $accent-text;
-            }
+          .date-text {
+            font-weight: 200;
+            font-size: 14.4px;
+            letter-spacing: 1px;
+            color: $accent-text;
+          }
         }
         .experience {
             .experience-text {
@@ -80,7 +81,7 @@
     z-index: 1;
     position: absolute;
     top: 50%;
-    left: 47.5%;
+    left: 47.6%;
 
 }
 .condition-icon {
