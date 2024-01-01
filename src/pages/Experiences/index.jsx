@@ -2,7 +2,6 @@ import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import SearchBar from "../../components/search-bar";
 import ExperienceCard from "./experience-card";
-import { EXPERIENCE_DATA } from "./mock_data";
 import experiencesOperation from "./../../redux/experiences/thunk";
 import styles from "./styles.module.scss";
 

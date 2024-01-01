@@ -6,11 +6,10 @@ import { ReactComponent as ConditionIcon } from "./../../../assets/icons/conditi
 
 import { clsx } from "clsx";
 import styles from "./styles.module.scss";
-import { Link, useParams } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const ExperienceCard = (props) => {
   const { className, data } = props;
-  const { slug } = useParams();
   const cardClasses = clsx(styles["card-box"], {
     [className]: className,
   });
