@@ -6,30 +6,4 @@
         gap: 20px;
         justify-content: center;
     }
-    .empty-skills-wrap {
-        padding: 150px 20px 20px;
-        position: relative;
-       .empty-skills {
-        position: absolute;
-        display: flex;
-        align-items: center;
-        flex-direction: column;
-        justify-content: center;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        .icon {
-            display: block;
-            background: url('./../../assets/icons/cube.svg') center center / contain no-repeat;
-            width: 56px;
-            height: 56px;  
-            margin-bottom: 5px;
-        }
-        .text {
-            letter-spacing: 1px;
-            font-weight: 300;
-            margin-top: 5px;
-        }
-       }
-    }
 }

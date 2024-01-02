@@ -5,36 +5,37 @@ import SearchBar from "../../components/search-bar";
 import SkillCard from "./skill-card";
 import styles from "./styles.module.scss";
 import skillsOperation from "../../redux/skills/thunk";
+import EmptyList from "../../components/empty-list";
 
 const Skills = () => {
   const skills = useSelector((state) => state.skills.list);
   const isLoading = useSelector((state) => state.skills.isFetching);
+  const dispatch = useDispatch();
+
   const [inputValue, setInputValue] = useState("");
+  const { fetchSkills } = skillsOperation;
   const filteredSkills = skills.filter((skill) => {
-    const inputLowerCase = inputValue.toLocaleLowerCase();
     if (inputValue === "") {
       return skill;
     } else {
-      return skill.label.toLowerCase().includes(inputLowerCase);
+      return skill.label.toLowerCase().includes(inputValue.toLowerCase());
     }
   });
 
-  let inputHandler = (value) => {
-    setInputValue(value);
-  };
-
-  const dispatch = useDispatch();
-
-  const { fetchSkills } = skillsOperation;
-
   useEffect(() => {
     dispatch(fetchSkills());
+    setInputValue(localStorage.getItem("inputValue"));
   }, []);
 
   if (isLoading) {
     return <div>loading ...</div>;
   }
 
+  const inputHandler = (value) => {
+    setInputValue(value);
+    localStorage.setItem("inputValue", value);
+  };
+  
   const renderFilteredSkills = (skill, idx) => {
     return (
       <Link to={`/skills/${skill.name}`} key={skill.id}>
@@ -49,14 +50,7 @@ const Skills = () => {
       <div className={styles["skills-list"]}>
         {filteredSkills.map(renderFilteredSkills)}
       </div>
-      <div className={styles["empty-skills-wrap"]}>
-        {filteredSkills.length === 0 && (
-          <div className={styles["empty-skills"]}>
-            <i className={styles["icon"]}></i>
-            <span className={styles["text"]}>Could not find anything</span>
-          </div>
-        )}
-      </div>
+      {filteredSkills.length === 0 && <EmptyList />}
     </section>
   );
 };
