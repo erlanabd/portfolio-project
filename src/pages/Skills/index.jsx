@@ -9,11 +9,12 @@ import EmptyList from "../../components/empty-list";
 
 const Skills = () => {
   const skills = useSelector((state) => state.skills.list);
-  const isLoading = useSelector((state) => state.skills.isFetching);
   const dispatch = useDispatch();
+  const isLoading = useSelector((state) => state.skills.isFetching);
 
-  const [inputValue, setInputValue] = useState("");
   const { fetchSkills } = skillsOperation;
+  const [inputValue, setInputValue] = useState("");
+
   const filteredSkills = skills.filter((skill) => {
     if (inputValue === "") {
       return skill;
@@ -24,18 +25,14 @@ const Skills = () => {
 
   useEffect(() => {
     dispatch(fetchSkills());
-    setInputValue(localStorage.getItem("inputValue"));
+    setInputValue(localStorage.getItem("inputSkillsValue"));
   }, []);
-
-  if (isLoading) {
-    return <div>loading ...</div>;
-  }
 
   const inputHandler = (value) => {
     setInputValue(value);
-    localStorage.setItem("inputValue", value);
+    localStorage.setItem("inputSkillsValue", value);
   };
-  
+
   const renderFilteredSkills = (skill, idx) => {
     return (
       <Link to={`/skills/${skill.name}`} key={skill.id}>
@@ -43,6 +40,10 @@ const Skills = () => {
       </Link>
     );
   };
+
+  if (isLoading) {
+    return <div>loading ...</div>;
+  }
 
   return (
     <section className={styles["skills-page"]}>

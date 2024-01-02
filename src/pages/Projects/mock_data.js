@@ -28,7 +28,7 @@ export const PROJECTS_DATA = [
   {
     id: "0",
     icon: projectOneImg,
-    name: "Slick Portfolio",
+    name: "First Slick Portfolio",
     links: [
       {
         id: 0,
@@ -43,7 +43,7 @@ export const PROJECTS_DATA = [
   {
     id: "1",
     icon: projectTwoImg,
-    name: "Slick Portfolio",
+    name: "Second Slick Portfolio",
     links: [
       {
         id: 0,
