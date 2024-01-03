@@ -38,14 +38,17 @@ export const SKILLS_DATA = [
       {
         image: emptyImg,
         label: "Open Source developer @ Self employed",
+        to: "open-sourcer",
       },
       {
         image: emptyImg,
         label: "Freelancer @ Self employed",
+        to: "software-freelance",
       },
       {
         image: emptyImg,
         label: "Junior Freelancer @ Self employed",
+        to: "software-freelance-junior",
       },
     ],
   },

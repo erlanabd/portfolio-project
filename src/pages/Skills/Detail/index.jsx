@@ -38,6 +38,7 @@ const DetailSkill = () => {
                 className={styles["chip"]}
                 icon={chip.image}
                 label={chip.label}
+                asLink={`/experiences/${chip.to}`}
               />
             );
           })}
