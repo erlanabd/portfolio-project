@@ -4,6 +4,8 @@ import searchIcon from "./../../assets/icons/search-in-search-page.svg";
 import SearchBar from "../../components/search-bar";
 import { SKILLS_DATA } from "../Skills/mock_data";
 import cubeIcon from "./../../assets/icons/cube.svg";
+import skillsIcon from "./../../assets/icons/skills-icon.svg";
+import experienceIcon from "./../../assets/icons/experience-icon.svg";
 import Chip from "../../components/chip";
 import { PROJECTS_DATA } from "../Projects/mock_data";
 import { EXPERIENCE_DATA } from "../Experiences/mock_data";
@@ -55,14 +57,24 @@ const Search = () => {
         {filteredSkills.map((skill) => {
           return (
             <div className={styles["chip"]}>
-              <Chip key={skill.id} icon={cubeIcon} label={skill.label} />
+              <Chip
+                asLink={`/skills/${skill.name}`}
+                key={skill.id}
+                icon={skillsIcon}
+                label={skill.label}
+              />
             </div>
           );
         })}
         {filteredProjects.map((project) => {
           return (
             <div className={styles["chip"]}>
-              <Chip key={project.id} icon={cubeIcon} label={project.name} />
+              <Chip
+                key={project.id}
+                asLink={`/projects/${project.id}`}
+                icon={cubeIcon}
+                label={project.name}
+              />
             </div>
           );
         })}
@@ -70,8 +82,9 @@ const Search = () => {
           return (
             <div className={styles["chip"]}>
               <Chip
+                asLink={`/experiences/${experience.name}`}
                 key={experience.id}
-                icon={cubeIcon}
+                icon={experienceIcon}
                 label={experience.title}
               />
             </div>
@@ -87,7 +100,8 @@ const Search = () => {
       )}
       {filteredSkills.length === 0 &&
         filteredProjects.length === 0 &&
-        filteredExperiences.length === 0 && (
+        filteredExperiences.length === 0 &&
+        inputValue && (
           <EmptyList
             icon={cubeIcon}
             text="Oops ! Nothing to show !"
