@@ -19,7 +19,9 @@ const Projects = () => {
     if (inputValue === "") {
       return project;
     } else {
-      return project.name.toLowerCase().includes(inputValue);
+      return project.name
+        .toLowerCase()
+        .includes(inputValue.toLocaleLowerCase());
     }
   });
 

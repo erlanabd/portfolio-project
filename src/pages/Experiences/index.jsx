@@ -3,8 +3,9 @@ import { useDispatch, useSelector } from "react-redux";
 import SearchBar from "../../components/search-bar";
 import ExperienceCard from "./experience-card";
 import experiencesOperation from "./../../redux/experiences/thunk";
-import styles from "./styles.module.scss";
 import EmptyList from "../../components/empty-list";
+import expIcon from "./../../assets/icons/experience-icon.svg";
+import styles from "./styles.module.scss";
 
 const Experiences = () => {
   const experiences = useSelector((state) => state.experiences.list);
@@ -18,7 +19,9 @@ const Experiences = () => {
     if (inputValue === "") {
       return experience;
     } else {
-      return experience.title.toLowerCase().includes(inputValue);
+      return experience.title
+        .toLowerCase()
+        .includes(inputValue.toLocaleLowerCase());
     }
   });
 
@@ -57,7 +60,9 @@ const Experiences = () => {
         {filteredExperiences.map(renderFilteredExperienceCards)}
         <div className={styles["vertical-line"]}></div>
       </div>
-      {filteredExperiences.length === 0 && <EmptyList />}
+      {filteredExperiences.length === 0 && (
+        <EmptyList icon={expIcon} className={styles["empty-list"]} />
+      )}
     </div>
   );
 };

@@ -3,9 +3,9 @@ import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import SearchBar from "../../components/search-bar";
 import SkillCard from "./skill-card";
-import styles from "./styles.module.scss";
 import skillsOperation from "../../redux/skills/thunk";
 import EmptyList from "../../components/empty-list";
+import styles from "./styles.module.scss";
 
 const Skills = () => {
   const skills = useSelector((state) => state.skills.list);
@@ -19,7 +19,7 @@ const Skills = () => {
     if (inputValue === "") {
       return skill;
     } else {
-      return skill.label.toLowerCase().includes(inputValue);
+      return skill.label.toLowerCase().includes(inputValue.toLocaleLowerCase());
     }
   });
 
@@ -51,7 +51,9 @@ const Skills = () => {
       <div className={styles["skills-list"]}>
         {filteredSkills.map(renderFilteredSkills)}
       </div>
-      {filteredSkills.length === 0 && <EmptyList />}
+      {filteredSkills.length === 0 && (
+        <EmptyList text="Could not find anything ..." />
+      )}
     </section>
   );
 };

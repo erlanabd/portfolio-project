@@ -14,7 +14,7 @@ const Header = () => {
             </li>
           </Link>
           <Link to={"/skills"}>
-            <li className={styles["header__item"]}>
+            <li className={`${styles["header__item"]} ${styles["skills"]}`}>
               <i
                 className={`${styles["header__icons"]} ${styles["skills-icon"]}`}
               ></i>
@@ -52,10 +52,16 @@ const Header = () => {
             </li>
           </Link>
         </ul>
-        <div className={styles["header__icons-wrap"]}>
-          <i
-            className={`${styles["header__icons"]} ${styles["search-icon"]}`}
-          ></i>
+          <Link className={styles["header__icons-wrap"]} to={"/search"}>
+        
+            <div className={styles["search-icon-wrap"]}>
+              <i
+                className={`${styles["header__icons"]} ${styles["search-icon"]}`}
+              ></i>
+            </div>
+
+          </Link>
+        <div className={styles["light-icon-wrap"]}>
           <i
             className={`${styles["header__icons"]} ${styles["light-icon"]}`}
           ></i>
