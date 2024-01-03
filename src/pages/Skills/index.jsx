@@ -19,7 +19,7 @@ const Skills = () => {
     if (inputValue === "") {
       return skill;
     } else {
-      return skill.label.toLowerCase().includes(inputValue.toLowerCase());
+      return skill.label.toLowerCase().includes(inputValue);
     }
   });
 

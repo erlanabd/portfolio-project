@@ -18,7 +18,7 @@ const Experiences = () => {
     if (inputValue === "") {
       return experience;
     } else {
-      return experience.title.toLowerCase().includes(inputValue.toLowerCase());
+      return experience.title.toLowerCase().includes(inputValue);
     }
   });
 
