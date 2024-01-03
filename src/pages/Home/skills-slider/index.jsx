@@ -34,7 +34,6 @@ const SkillsSlider = (props) => {
         className={styles["slider"]}
         spaceBetween={50}
         slidesPerView={1}
-        onSlideChange={() => console.log("slide change")}
         onSwiper={(swiper) => setSwiperInstance(swiper)}
       >
         <SwiperSlide className={styles["slider__item"]}>
