@@ -4,11 +4,13 @@ import { Link } from "react-router-dom";
 import styles from "./styles.module.scss";
 
 const Chip = (props) => {
-  const { label, isActive, className, asLink, icon, target, marginBottom } = props;
+  const { label, isActive, className, asLink, icon, target, marginBottom, marginTop } =
+    props;
   const classes = clsx(styles["chip-wrap"], {
     [styles["active"]]: isActive,
     [className]: className,
-    [styles['chip-wrap-mb']]: marginBottom
+    [styles["chip-wrap-mb"]]: marginBottom,
+    [styles["label-mt"]]: marginTop,
   });
 
   const labelClasses = clsx(styles["label"], {

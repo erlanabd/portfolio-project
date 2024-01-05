@@ -21,7 +21,7 @@ const Projects = () => {
     } else {
       return project.name
         .toLowerCase()
-        .includes(inputValue.toLocaleLowerCase());
+        .includes(inputValue);
     }
   });
 
@@ -31,7 +31,7 @@ const Projects = () => {
   }, []);
 
   const inputHandler = (value) => {
-    setInputValue(value);
+    setInputValue(value.toLowerCase());
     localStorage.setItem("inputProjectsValue", value);
   };
 

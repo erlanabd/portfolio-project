@@ -11,10 +11,20 @@ import Skills from "../../pages/Skills";
 import DetailSkill from "../../pages/Skills/Detail";
 import styles from "./styles.module.scss";
 import common from "./../../assets/styles/common.module.scss";
+import Education from "../../pages/Education";
+import { useSelector } from "react-redux";
+import { clsx } from "clsx";
 
 function App() {
+  const theme = useSelector((state) => state.theme)
+  const mainLayoutClasses = clsx(
+    styles["main-layout"],
+    {
+      [styles['main-layout-dark-bg']]: theme === 'dark'
+    }
+  )
   return (
-    <div className={styles["main-layout"]}>
+    <div className={mainLayoutClasses}>
       <div className={styles["header"]}>
         <div className={common.container}>
           <Header />
@@ -39,6 +49,7 @@ function App() {
             </Route>
             <Route path={"/search"} element={<Search />} />
             <Route path={"/resume"} element={<Resume />} />
+            <Route path={"/education"} element={<Education />} />
           </Routes>
         </div>
       </div>

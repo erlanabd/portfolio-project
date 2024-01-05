@@ -1,0 +1,90 @@
+@import './../../../assets/styles/light-theme.scss';
+
+
+.card-box {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+    .link {
+        display: block;
+        max-width: 47.5%;
+        width: 100%;
+    }
+}
+.card {
+    max-width: 100%;
+    padding: 25px;
+    margin: 67px 2px 0;
+
+    cursor: pointer;
+    &:hover {
+        transform: scale(1.007);
+        transition: .1s ease-in-out;
+    }
+    .img-wrap {
+        width: 50px;
+        height: 50px;
+        margin-bottom: 20px;
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    }
+    .body {
+        max-width: 401px;
+        width: 100%;
+        .title {
+            margin: 5px 0;
+            font-size: 20.8px;
+            font-weight: 400;
+            letter-spacing: 1px;
+        }
+        .exps-wrap {
+            display: flex;
+            margin-bottom: 8px;
+            margin: 12px 0;
+            .exp {
+                margin-bottom: 5px;
+                margin-right: 5px;
+            }
+        }
+        .date {
+            margin: 12px 0;
+          .date-text {
+            font-weight: 200;
+            font-size: 14.4px;
+            letter-spacing: 1px;
+            color: $accent-text;
+          }
+        }
+        .experience {
+            .experience-text {
+                letter-spacing: 1px;
+            }
+        }
+        .chips-wrap {
+            display: flex;
+            flex-wrap: wrap;
+            .icon {
+                margin-right: 5px;
+                font-weight: 400;
+                font-size: 13px;
+            }
+        }
+    }
+}
+.condition-icon-wrap {
+    background-color: #fff;
+    padding: 15px;
+    z-index: 1;
+    position: absolute;
+    top: 50%;
+    left: 47.6%;
+
+}
+.condition-icon {
+    display: block;
+   z-index: 1;
+}

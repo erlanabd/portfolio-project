@@ -8,8 +8,6 @@
     &__navbar {
         display: flex;
         align-items: center;
-        // justify-content: space-between;
-        
     }
     &__list {
         display: flex;
@@ -49,7 +47,10 @@
         .header_text {
             letter-spacing: 1px;
         }
-    }   
+    } 
+    .link {
+        cursor: pointer;
+    }  
     .header__icons-wrap {
         margin-left: 45px;
         margin-right: 15px;
@@ -65,6 +66,7 @@
         height: 100%;
         display: flex;
         align-items: center;
+        cursor: pointer;
         &:hover {
             background: $border;
         }
@@ -91,5 +93,8 @@
     }
     &.light-icon{
         background: url('../../assets/icons/sun-icon.svg') center center/contain no-repeat;
+    }
+    &.dark-icon {
+        background: url('./../../assets/icons/moon.svg') center center/contain no-repeat;
     }
 }

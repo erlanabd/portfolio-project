@@ -1,0 +1,37 @@
+@import './../../assets/styles/light-theme.scss';
+
+.exp-wrap {
+    padding-bottom: 48px;
+    .exp-cards-wrap {
+        position: relative;
+        .card-box {
+            display: flex;
+            align-items: center;
+        }
+    }
+    .vertical-line {
+        margin-top: 40px;
+        position: absolute;
+        top: 0%;
+        left: 50%;
+        width: 0.5px;
+        height: 100%;
+        background: $border;
+        z-index: -2;
+        display: flex;
+    }
+    
+    .card {
+        display: flex;
+        flex-direction: row;
+    }
+}
+
+.card-row {
+    display: flex;
+    flex-direction: row-reverse;
+}
+
+.empty-list {
+    margin-top: 150px;
+}

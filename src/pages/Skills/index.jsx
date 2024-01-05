@@ -19,7 +19,7 @@ const Skills = () => {
     if (inputValue === "") {
       return skill;
     } else {
-      return skill.label.toLowerCase().includes(inputValue.toLocaleLowerCase());
+      return skill.label.toLowerCase().includes(inputValue);
     }
   });
 
@@ -29,7 +29,7 @@ const Skills = () => {
   }, []);
 
   const inputHandler = (value) => {
-    setInputValue(value);
+    setInputValue(value.toLowerCase());
     localStorage.setItem("inputSkillsValue", value);
   };
 

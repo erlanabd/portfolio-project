@@ -1,32 +1,30 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import SearchBar from "../../components/search-bar";
-import ExperienceCard from "./experience-card";
-import experiencesOperation from "./../../redux/experiences/thunk";
+import experiencesOperation from "./../../redux/education/thunk";
 import EmptyList from "../../components/empty-list";
 import expIcon from "./../../assets/icons/experience-icon.svg";
 import styles from "./styles.module.scss";
+import EducationCard from "./education-card";
 
-const Experiences = () => {
-  const experiences = useSelector((state) => state.experiences.list);
+const Education = () => {
+  const education = useSelector((state) => state.education.list);
   const dispatch = useDispatch();
   const isLoading = useSelector((state) => state.experiences.isFetching);
 
-  const { fetchExperiences } = experiencesOperation;
+  const { fetchEducation } = experiencesOperation;
   const [inputValue, setInputValue] = useState("");
 
-  const filteredExperiences = experiences.filter((experience) => {
+  const filteredExperiences = education.filter((education) => {
     if (inputValue === "") {
-      return experience;
+      return education;
     } else {
-      return experience.title
-        .toLowerCase()
-        .includes(inputValue);
+      return education.title.toLowerCase().includes(inputValue);
     }
   });
 
   useEffect(() => {
-    dispatch(fetchExperiences());
+    dispatch(fetchEducation());
     setInputValue(localStorage.getItem("inputExperiencesValue"));
   }, []);
 
@@ -37,7 +35,7 @@ const Experiences = () => {
 
   const renderFilteredExperienceCards = (card, idx) => {
     return (
-      <ExperienceCard
+      <EducationCard
         key={card.id}
         data={card}
         className={idx % 2 !== 0 ? styles["card-row"] : styles["card"]}
@@ -51,11 +49,7 @@ const Experiences = () => {
 
   return (
     <div className={styles["exp-wrap"]}>
-      <SearchBar
-        value={inputValue}
-        onChange={inputHandler}
-        title="Experiences"
-      />
+      <SearchBar value={inputValue} onChange={inputHandler} title="Education" />
       <div className={styles["exp-cards-wrap"]}>
         {filteredExperiences.map(renderFilteredExperienceCards)}
         <div className={styles["vertical-line"]}></div>
@@ -67,4 +61,4 @@ const Experiences = () => {
   );
 };
 
-export default Experiences;
+export default Education;

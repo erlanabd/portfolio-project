@@ -47,7 +47,7 @@ const Search = () => {
   }, []);
 
   const inputHandler = (value) => {
-    setInputValue(value);
+    setInputValue(value.toLowerCase());
     localStorage.setItem("inputSkillsValue", value);
   };
   return (

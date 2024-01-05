@@ -17,6 +17,7 @@
         font-size: 13px;
         font-weight: 300;
         letter-spacing: 0.72px;
+      
     }
     .icon-wrap {
         width: 15px;
@@ -37,5 +38,8 @@
     }
     &.chip-wrap-mb {
         margin-bottom: 10px;
+    }
+    &.label-mt {
+        margin-top: 10px;
     }
 }
