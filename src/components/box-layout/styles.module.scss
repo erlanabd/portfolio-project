@@ -9,4 +9,7 @@
     &:hover {
         border-color: $border-hover;
     }
+    &.box-layout-dark {
+        border-color: $dark-2;
+    }
 }

@@ -10,10 +10,18 @@
         padding: 10px 20px;
         transition-duration: .25s;
         outline: unset;
+        background: transparent;
         &:focus {
             border: 1px solid $border-hover;
             background-color: $main-hover;
         }
-
+       &.input-dark {
+        background: transparent;
+        border: 1px solid $dark-2;
+        &:focus {
+            border: 1px solid $light-7;
+            background-color: $dark-1;
+        }
+       }
     }
 }

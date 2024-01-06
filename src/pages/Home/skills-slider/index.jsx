@@ -11,18 +11,33 @@ import { Autoplay } from "swiper/modules";
 import styles from "./styles.module.scss";
 
 const SkillsSlider = (props) => {
-  const {} = props;
+  const { theme } = props;
   const [swiperInstance, setSwiperInstance] = useState(null);
+
+  const sliderLeftNavButtonClasses = clsx(
+    styles["slider-nav-button"],
+    styles["left"],
+    {
+      [styles["slider-nav-button-dark"]]: theme === "dark",
+    }
+  );
+  const sliderRightNavButtonClasses = clsx(
+    styles["slider-nav-button"],
+    styles["right"],
+    {
+      [styles["slider-nav-button-dark"]]: theme === "dark",
+    }
+  );
 
   return (
     <div className={styles["slider-wrap"]}>
       <button
-        className={clsx(styles["slider-nav-button"], styles["left"])}
+        className={sliderLeftNavButtonClasses}
         onClick={() => swiperInstance.slidePrev()}
       >
         <ArrowIcon />
       </button>
-      
+
       <Swiper
         loop={true}
         modules={[Autoplay]}
@@ -62,7 +77,7 @@ const SkillsSlider = (props) => {
         </SwiperSlide>
       </Swiper>
       <button
-        className={clsx(styles["slider-nav-button"], styles["right"])}
+        className={sliderRightNavButtonClasses}
         onClick={() => swiperInstance.slideNext()}
       >
         <ArrowIcon />

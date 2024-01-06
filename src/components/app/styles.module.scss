@@ -2,10 +2,14 @@
 
 .header {
   border-bottom: 1px solid $border;
+ 
 }
+.header-dark {
+  border-bottom: 1px solid $dark-1;
+  }
 
 .main-layout-dark-bg {
-  color: #fff;
+  color: #E1E1E1;
 }
 
 .page-indent {

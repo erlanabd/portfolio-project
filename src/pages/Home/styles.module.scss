@@ -11,17 +11,21 @@
 
         .title {
             margin: 5px 0;
-            background-attachment: scroll;
-            background-clip: text;
-            background-color: $main-text;
-            background-image: linear-gradient(rgb(0, 0, 0), rgb(78, 78, 78));
-            background-size: auto;
             display: block;
-            font-size: 48px;
+            font-size: 64px;
             font-weight: 900;
             letter-spacing: 4px;
-            -webkit-background-clip: text;
+            background: linear-gradient($dark-0, $dark-4); 
+            background-attachment: scroll;
+            background-clip: text; 
+            -webkit-background-clip: text; 
             -webkit-text-fill-color: transparent;
+            &.title-dark {
+                background: linear-gradient($light-0, $light-4); 
+                background-clip: text; 
+                -webkit-background-clip: text; 
+                -webkit-text-fill-color: transparent;
+            }
         }
         .main-info {
             font-size: 19px;
@@ -29,6 +33,9 @@
             font-weight: 200;
             letter-spacing: 1px;
             width: 653px;
+            &.main-info-dark {
+                color: $light-2;
+            }
         }
         .icons-wrap {
             display: flex;
@@ -39,11 +46,7 @@
                 display: block; 
                 width: 20px;
                 height: 20px;
-                fill: #3E3E3E;
                 margin-right: 8px;
-                &.github-icon {
-                    background: url('./../../assets/icons/github-logo.svg') center center / contain no-repeat;
-                 }
                  &.linkedin-icon{
                     background: url('./../../assets/icons/linkedin-logo.svg') center center / contain no-repeat;  
                 }

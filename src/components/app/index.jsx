@@ -16,16 +16,15 @@ import { useSelector } from "react-redux";
 import { clsx } from "clsx";
 
 function App() {
-  const theme = useSelector((state) => state.theme)
-  const mainLayoutClasses = clsx(
-    styles["main-layout"],
-    {
-      [styles['main-layout-dark-bg']]: theme === 'dark'
-    }
-  )
+  const theme = useSelector((state) => state.theme);
+  const mainLayoutClasses = clsx(styles["main-layout"], {
+    [styles["main-layout-dark-bg"]]: theme === "dark",
+  });
   return (
     <div className={mainLayoutClasses}>
-      <div className={styles["header"]}>
+      <div
+        className={theme === "dark" ? styles["header-dark"] : styles["header"]}
+      >
         <div className={common.container}>
           <Header />
         </div>

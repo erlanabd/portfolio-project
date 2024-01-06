@@ -1,13 +1,30 @@
+import clsx from "clsx";
 import React from "react";
+import { useSelector } from "react-redux";
 import SkillsSlider from "./skills-slider";
+import { ReactComponent as GithubIcon } from "./../../assets/icons/github-logo.svg";
+import { ReactComponent as LinkedinIcon } from "./../../assets/icons/linkedin-logo.svg";
+import { ReactComponent as TwitterIcon } from "./../../assets/icons/twitter-logo.svg";
+import { ReactComponent as StackoverflowIcon } from "./../../assets/icons/stackoverflow-logo.svg";
+import { ReactComponent as MailIcon } from "./../../assets/icons/email-logo.svg";
+import { ReactComponent as YoutubeIcon } from "./../../assets/icons/youtube-logo.svg";
+import { ReactComponent as FacebookIcon } from "./../../assets/icons/facebook-logo.svg";
 import styles from "./styles.module.scss";
 
 const Home = () => {
+  const theme = useSelector((state) => state.theme);
+
+  const titleClasses = clsx(styles["title"], {
+    [styles["title-dark"]]: theme === "dark",
+  });
+  const mainInfoClasses = clsx(styles["main-info"], {
+    [styles["main-info-dark"]]: theme === "dark",
+  });
   return (
     <div className={styles["home-page-wrap"]}>
       <div className={styles["info-wrap"]}>
-        <h2 className={styles["title"]}>Name LASTNAME,</h2>
-        <div className={styles["main-info"]}>
+        <h2 className={titleClasses}>Name LASTNAME,</h2>
+        <div className={mainInfoClasses}>
           Lorem ipsum dolor sit, amet consectetur adipisicing elit. Corrupti,
           rerum. Debitis accusantium deleniti enim iste dignissimos? Similique,
           exercitationem! Odit vero, numquam quae ratione maxime sunt reiciendis
@@ -15,33 +32,53 @@ const Home = () => {
         </div>
         <div className={styles["icons-wrap"]}>
           <a target="_blank" href="https://github.com">
-            <i className={`${styles["icon"]} ${styles["github-icon"]}`}></i>
+            {/* <i className={`${styles["icon"]} ${styles["github-icon"]}`}></i> */}
+            <GithubIcon
+              fill={theme === "dark" ? "#C1C1C1" : "#3E3E3E"}
+              className={styles["icon"]}
+            />
           </a>
           <a target="_blank" href="https://linkedin.com">
-            <i className={`${styles["linkedin-icon"]} ${styles["icon"]}`}></i>
+            <LinkedinIcon
+              fill={theme === "dark" ? "#C1C1C1" : "#3E3E3E"}
+              className={styles["icon"]}
+            />
           </a>
           <a target="_blank" href="https://twitter.com">
-            <i className={`${styles["twitter-icon"]} ${styles["icon"]}`}></i>
+            <TwitterIcon
+              fill={theme === "dark" ? "#C1C1C1" : "#3E3E3E"}
+              className={styles["icon"]}
+            />
           </a>
           <a target="_blank" href="https://stackoverflow.com">
-            <i
-              className={`${styles["stackoverflow-icon"]} ${styles["icon"]}`}
-            ></i>
+            <StackoverflowIcon
+              fill={theme === "dark" ? "#C1C1C1" : "#3E3E3E"}
+              className={styles["icon"]}
+            />
           </a>
           <a target="_blank" href="https://mail.ru">
-            <i className={`${styles["mail-icon"]} ${styles["icon"]}`}></i>
+            <MailIcon
+              fill={theme === "dark" ? "#C1C1C1" : "#3E3E3E"}
+              className={styles["icon"]}
+            />
           </a>
           <a target="_blank" href="https://youtube.com">
-            <i className={`${styles["youtube-icon"]} ${styles["icon"]}`}></i>
+            <YoutubeIcon
+              fill={theme === "dark" ? "#C1C1C1" : "#3E3E3E"}
+              className={styles["icon"]}
+            />
           </a>
           <a target="_blank" href="https://facebook.com">
-            <i className={`${styles["facebook-icon"]} ${styles["icon"]}`}></i>
+            <FacebookIcon
+              fill={theme === "dark" ? "#C1C1C1" : "#3E3E3E"}
+              className={styles["icon"]}
+            />
           </a>
         </div>
       </div>
 
       <div className={styles["slider"]}>
-        <SkillsSlider />
+        <SkillsSlider theme={theme}/>
       </div>
     </div>
   );

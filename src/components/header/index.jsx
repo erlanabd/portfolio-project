@@ -3,7 +3,15 @@ import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { changeTheme } from "../../redux/theme/actions";
+import { ReactComponent as LogoIcon } from "./../../assets/icons/logo-icon.svg";
 import { ReactComponent as SkillsIcon } from "./../../assets/icons/skills-icon.svg";
+import { ReactComponent as ProjectsIcon } from "./../../assets/icons/projects-icon.svg";
+import { ReactComponent as ExperiencesIcon } from "./../../assets/icons/experience-icon.svg";
+import { ReactComponent as EducationIcon } from "./../../assets/icons/education-icon.svg";
+import { ReactComponent as ResumeIcon } from "./../../assets/icons/resume-icon.svg";
+import { ReactComponent as SearchIcon } from "./../../assets/icons/search-icon.svg";
+import { ReactComponent as SunIcon } from "./../../assets/icons/sun-icon.svg";
+import { ReactComponent as MoonIcon } from "./../../assets/icons/moon-icon.svg";
 import styles from "./styles.module.scss";
 
 const Header = () => {
@@ -13,6 +21,10 @@ const Header = () => {
   const themeIconClasses = clsx(styles["header__icons"], {
     [styles["light-icon"]]: theme === "light" || theme === false,
     [styles["dark-icon"]]: theme === "dark",
+  });
+
+  const headerItemDarkHoverClasses = clsx(styles["header__item"], {
+    [styles["header__item-dark"]]: theme === "dark",
   });
 
   const handleChangeTheme = () => {
@@ -31,66 +43,63 @@ const Header = () => {
       <nav className={styles["header__navbar"]}>
         <ul className={styles["header__list"]}>
           <Link className={styles["link"]} to={"/"}>
-            <li className={styles["header__item"]}>
-              <i className={styles["logo-icon"]}></i>
+            <li className={headerItemDarkHoverClasses}>
+              <LogoIcon className={styles["logo-icon"]} />
               <span className={styles["header_title-text"]}>Name LASTNAME</span>
             </li>
           </Link>
           <Link className={styles["link"]} to={"/skills"}>
-            <li className={`${styles["header__item"]} ${styles["skills"]}`}>
-              {/* <i
-                className={`${styles["header__icons"]} ${styles["skills-icon"]}`}
-              ></i> */}
+            <li className={headerItemDarkHoverClasses}>
               <SkillsIcon className={styles["header__icons"]} />
               <span className={styles["header_text"]}>Skills</span>
             </li>
           </Link>
           <Link className={styles["link"]} to={"/projects"}>
-            <li className={styles["header__item"]}>
-              <i
-                className={`${styles["header__icons"]} ${styles["projects-icon"]}`}
-              ></i>
+            <li className={headerItemDarkHoverClasses}>
+              <ProjectsIcon className={styles["header__icons"]} />
               <span className={styles["header_text"]}>Projects</span>
             </li>
           </Link>
           <Link className={styles["link"]} to={"/experiences"}>
-            <li className={styles["header__item"]}>
-              <i
-                className={`${styles["header__icons"]} ${styles["experiences-icon"]}`}
-              ></i>
+            <li className={headerItemDarkHoverClasses}>
+              <ExperiencesIcon className={styles["header__icons"]} />
               <span className={styles["header_text"]}>Experiences</span>
             </li>
           </Link>
           <Link className={styles["link"]} to={"/education"}>
-            <li className={styles["header__item"]}>
-              <i
-                className={`${styles["header__icons"]} ${styles["education-icon"]}`}
-              ></i>
+            <li className={headerItemDarkHoverClasses}>
+              <EducationIcon className={styles["header__icons"]} />
               <span className={styles["header_text"]}>Education</span>
             </li>
           </Link>
 
           <Link className={styles["link"]} to={"/resume"}>
-            <li className={styles["header__item"]}>
-              <i
-                className={`${styles["header__icons"]} ${styles["resume-icon"]}`}
-              ></i>
+            <li className={headerItemDarkHoverClasses}>
+              <ResumeIcon className={styles["header__icons"]} />
               <span className={styles["header_text"]}>Resume</span>
             </li>
           </Link>
         </ul>
         <Link
-          className={`${styles["header__icons-wrap"]} ${styles["link"]}`}
+          className={clsx(styles["header__icons-wrap"], {
+            [styles["header__icons-dark"]]: theme === "dark",
+          })}
           to={"/search"}
         >
           <div className={styles["search-icon-wrap"]}>
-            <i
-              className={`${styles["header__icons"]}  ${styles["search-icon"]}`}
-            ></i>
+            <SearchIcon className={styles["header__icons"]} />
           </div>
         </Link>
-        <div className={styles["light-icon-wrap"]}>
-          <i onClick={handleChangeTheme} className={themeIconClasses}></i>
+        <div
+          onClick={handleChangeTheme}
+          className={clsx(styles["light-icon-wrap"], {
+            [styles["light-icon-dark"]]: theme === "dark",
+          })}
+        >
+          {(theme === "light" || theme === false) && (
+            <SunIcon className={themeIconClasses} />
+          )}
+          {theme === "dark" && <MoonIcon className={themeIconClasses} />}
         </div>
       </nav>
     </div>

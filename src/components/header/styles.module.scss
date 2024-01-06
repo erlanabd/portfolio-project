@@ -1,5 +1,6 @@
 @import './../../assets/styles/light-theme.scss';
 
+
 .header {
     display: flex;
     justify-content: space-between;
@@ -35,7 +36,7 @@
             margin-left: 20px;
         }
         &:hover {
-            background: $border;
+            background: $light-1;
         }
         .header_title-text {
             font-weight: 700;
@@ -46,6 +47,16 @@
         }
         .header_text {
             letter-spacing: 1px;
+        }
+    }
+    &__item-dark {
+        list-style-type: none;
+        display: flex;
+        align-items: center;
+        padding: 20px 20px;
+        height: 38px;
+        &:hover {
+            background: $dark-1;
         }
     } 
     .link {
@@ -61,15 +72,27 @@
         &:hover {
             background: $border;
         }
+        &.header__icons-dark {
+            &:hover{
+            background: $dark-1;
+
+            }
+        }
     }
     .light-icon-wrap {
         height: 100%;
         display: flex;
         align-items: center;
         cursor: pointer;
+        user-select: none;
         &:hover {
             background: $border;
         }
+     &.light-icon-dark{
+         &:hover{
+             background: $dark-1;
+         }
+     }
     }
 }
 
@@ -79,22 +102,5 @@
     display: block;
     width: 18px;
     height: 18px;
-    &.skills-icon {
-        background: url('../../assets/icons/skills-icon.svg') center center/contain no-repeat;
-    }
-    &.projects-icon{ background: url('../../assets/icons/projects-icon.svg') center center/contain no-repeat;}
-    &.experiences-icon{
-        background: url('../../assets/icons/experience-icon.svg') center center/contain no-repeat;
-    }
-    &.education-icon{ background: url('../../assets/icons/education-icon.svg') center center/contain no-repeat;}
-    &.resume-icon{ background: url('../../assets/icons/resume-icon.svg') center center/contain no-repeat;}
-    &.search-icon{
-        background: url('../../assets/icons/search-icon.svg') center center/contain no-repeat;
-    }
-    &.light-icon{
-        background: url('../../assets/icons/sun-icon.svg') center center/contain no-repeat;
-    }
-    &.dark-icon {
-        background: url('./../../assets/icons/moon.svg') center center/contain no-repeat;
-    }
+    
 }

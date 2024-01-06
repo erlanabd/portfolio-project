@@ -23,6 +23,12 @@
         &.right {
            transform: rotate(180deg);
         }
+        &.slider-nav-button-dark {
+            border: 1px solid $dark-2;
+            &:hover {
+            border: 1px solid $light-7;
+            }
+        }
     }
     .slider {
         width: 200px;

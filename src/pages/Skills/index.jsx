@@ -9,6 +9,7 @@ import styles from "./styles.module.scss";
 
 const Skills = () => {
   const skills = useSelector((state) => state.skills.list);
+  const theme = useSelector((state) => state.theme);
   const dispatch = useDispatch();
   const isLoading = useSelector((state) => state.skills.isFetching);
 
@@ -36,7 +37,12 @@ const Skills = () => {
   const renderFilteredSkills = (skill, idx) => {
     return (
       <Link to={`/skills/${skill.name}`} key={skill.id}>
-        <SkillCard key={skill.id} title={skill.label} image={skill.image} />
+        <SkillCard
+          key={skill.id}
+          theme={theme}
+          title={skill.label}
+          image={skill.image}
+        />
       </Link>
     );
   };
