@@ -60,10 +60,10 @@ const Search = () => {
           return (
             <div className={styles["chip"]}>
               <Chip
-              theme={theme}
+                theme={theme}
                 asLink={`/skills/${skill.name}`}
                 key={skill.id}
-                icon={skillsIcon}
+                icon={skill.image}
                 label={skill.label}
               />
             </div>
@@ -73,10 +73,10 @@ const Search = () => {
           return (
             <div className={styles["chip"]}>
               <Chip
-              theme={theme}
+                theme={theme}
                 key={project.id}
                 asLink={`/projects/${project.id}`}
-                icon={cubeIcon}
+                icon={project.icon}
                 label={project.name}
               />
             </div>
@@ -86,10 +86,11 @@ const Search = () => {
           return (
             <div className={styles["chip"]}>
               <Chip
-              theme={theme}
+                exp="true"
+                theme={theme}
                 asLink={`/experiences/${experience.name}`}
                 key={experience.id}
-                icon={experienceIcon}
+                icon={experience.image}
                 label={experience.title}
               />
             </div>
@@ -98,7 +99,7 @@ const Search = () => {
       </div>
       {!inputValue && (
         <EmptyList
-        icon={'search'}
+          icon={"search"}
           theme={theme}
           text="Try typing something..."
           className={styles["empty-list"]}
@@ -109,7 +110,7 @@ const Search = () => {
         filteredExperiences.length === 0 &&
         inputValue && (
           <EmptyList
-            icon={'false'}
+            icon={"false"}
             theme={theme}
             text="Oops ! Nothing to show !"
             className={styles["empty-list"]}

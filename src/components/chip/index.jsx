@@ -1,6 +1,7 @@
 import { clsx } from "clsx";
 import React from "react";
 import { Link } from "react-router-dom";
+import { ReactComponent as ExpIcon } from "./../../assets/icons/experience-icon.svg";
 import styles from "./styles.module.scss";
 
 const Chip = (props) => {
@@ -13,6 +14,7 @@ const Chip = (props) => {
     target,
     marginBottom,
     marginTop,
+    exp,
     theme,
   } = props;
   const classes = clsx(styles["chip-wrap"], {
@@ -33,7 +35,9 @@ const Chip = (props) => {
       <span className={labelClasses}>
         {icon && (
           <div className={styles["icon-wrap"]}>
-            <img src={icon} alt={label} />
+            {exp && exp === 'true' ? (<ExpIcon />) : (
+              <img src={icon} alt={label} />
+            )}
           </div>
         )}
         {label}
