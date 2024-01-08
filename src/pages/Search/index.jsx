@@ -10,8 +10,10 @@ import Chip from "../../components/chip";
 import { PROJECTS_DATA } from "../Projects/mock_data";
 import { EXPERIENCE_DATA } from "../Experiences/mock_data";
 import styles from "./styles.module.scss";
+import { useSelector } from "react-redux";
 
 const Search = () => {
+  const theme = useSelector((state) => state.theme);
   const [inputValue, setInputValue] = useState("");
 
   const filteredSkills = SKILLS_DATA.filter((skill) => {
@@ -58,6 +60,7 @@ const Search = () => {
           return (
             <div className={styles["chip"]}>
               <Chip
+              theme={theme}
                 asLink={`/skills/${skill.name}`}
                 key={skill.id}
                 icon={skillsIcon}
@@ -70,6 +73,7 @@ const Search = () => {
           return (
             <div className={styles["chip"]}>
               <Chip
+              theme={theme}
                 key={project.id}
                 asLink={`/projects/${project.id}`}
                 icon={cubeIcon}
@@ -82,6 +86,7 @@ const Search = () => {
           return (
             <div className={styles["chip"]}>
               <Chip
+              theme={theme}
                 asLink={`/experiences/${experience.name}`}
                 key={experience.id}
                 icon={experienceIcon}
@@ -93,7 +98,8 @@ const Search = () => {
       </div>
       {!inputValue && (
         <EmptyList
-          icon={searchIcon}
+        icon={'search'}
+          theme={theme}
           text="Try typing something..."
           className={styles["empty-list"]}
         />
@@ -103,7 +109,8 @@ const Search = () => {
         filteredExperiences.length === 0 &&
         inputValue && (
           <EmptyList
-            icon={cubeIcon}
+            icon={'false'}
+            theme={theme}
             text="Oops ! Nothing to show !"
             className={styles["empty-list"]}
           />

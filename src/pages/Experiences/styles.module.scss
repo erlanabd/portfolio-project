@@ -19,6 +19,9 @@
         background: $border;
         z-index: -2;
         display: flex;
+        &.vertical-line-dark {
+            background: $dark-2;
+        }
     }
     
     .card {

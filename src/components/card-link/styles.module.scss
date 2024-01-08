@@ -1,4 +1,6 @@
 @import './../../assets/styles/light-theme.scss';
+@import './../../assets/styles/colors.scss';
+
 
 .card-link {
     display: flex;
@@ -10,6 +12,16 @@
     height: 28px;
     padding: 5px;
     border-radius: 10px;
+    &.card-link-dark {
+    border: 1px solid $dark-2;
+    &:hover {
+        &::before {
+            background-color: #1E1E1E;
+            color: $light-0;
+        }
+    }
+       
+    }
     &:hover {
         border: 1px solid $border-hover;
         &::before {

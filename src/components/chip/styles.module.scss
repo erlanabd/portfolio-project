@@ -1,6 +1,14 @@
 @import './../../assets/styles/light-theme.scss';
+@import './../../assets/styles/colors.scss';
+
 
 .chip-wrap {
+    &.border-dark {
+        border: 1px solid $dark-2;
+        &:hover {
+            background: $dark-1;
+        }
+    }
     display: block;
     width: max-content;
     border: 1px solid $border;
@@ -17,7 +25,9 @@
         font-size: 13px;
         font-weight: 300;
         letter-spacing: 0.72px;
-      
+      &.label-dark {
+          color: $light-0;
+      }
     }
     .icon-wrap {
         width: 15px;

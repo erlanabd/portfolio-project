@@ -1,4 +1,5 @@
 @import './../../assets/styles/light-theme.scss';
+@import './../../assets/styles/colors.scss';
 
 .exp-wrap {
     padding-bottom: 48px;
@@ -19,6 +20,9 @@
         background: $border;
         z-index: -2;
         display: flex;
+        &.vertical-line-dark {
+            background: $dark-2;
+        }
     }
     
     .card {

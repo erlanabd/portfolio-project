@@ -3,13 +3,16 @@ import { useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import projectsOperation from "./../../../redux/projects/thunk";
 import Chip from "../../../components/chip";
-import withoutScreenshotImg from "./../../../assets/images/without-screenshot.svg";
+import { ReactComponent as WithoutIcon } from "./../../../assets/images/without-screenshot.svg";
 import linkIcon from "./../../../assets/icons/paper-clip.svg";
 import styles from "./styles.module.scss";
+import clsx from "clsx";
 
 const DetailProject = () => {
   const { id } = useParams();
   const data = useSelector((state) => state.projects.data);
+  const theme = useSelector((state) => state.theme);
+
   const project = {
     ...data,
   };
@@ -18,6 +21,24 @@ const DetailProject = () => {
 
   const dispatch = useDispatch();
   const { fetchProjectById } = projectsOperation;
+  const titleClasses = clsx(styles["title"], {
+    [styles["title-dark"]]: theme === "dark",
+  });
+  const imgClasses = clsx(styles["image-wrap"], {
+    [styles["img-dark"]]: theme === "dark",
+  });
+  const titleBoxClasses = clsx(styles["title-box"], {
+    [styles["title-box-dark"]]: theme === "dark",
+  });
+  const borderClasses = clsx(styles["border"], {
+    [styles["border-dark"]]: theme === "dark",
+  });
+  const descriptionWrapClasses = clsx(styles["description-wrap"], {
+    [styles["description-wrap-dark"]]: theme === "dark",
+  });
+  const textClasses = clsx(styles["text"], {
+    [styles["text-dark"]]: theme === "dark",
+  });
 
   useEffect(() => {
     dispatch(fetchProjectById(id));
@@ -45,17 +66,18 @@ const DetailProject = () => {
 
   return (
     <div key={project.id} className={styles["detail-wrap"]}>
-      <div className={styles["title-box"]}>
+      <div className={titleBoxClasses}>
         <div className={styles["title-wrap"]}>
-          <h2 className={styles["title"]}>{project.name}</h2>
+          <h2 className={titleClasses}>{project.name}</h2>
           <span className={styles["text"]}>Website Template</span>
-          <div className={styles["image-wrap"]}>
+          <div className={imgClasses}>
             <img src={project.icon} alt="Skill logo" />
           </div>
-          <div className={styles["border"]}></div>
+          <div className={borderClasses}></div>
         </div>
         <div className={styles["chips-wrap"]}>
           <Chip
+            theme={theme}
             className={styles["chip"]}
             marginBottom
             icon={linkIcon}
@@ -69,6 +91,7 @@ const DetailProject = () => {
               project.skills.map((skill) => {
                 return (
                   <Chip
+                    theme={theme}
                     className={styles["chip"]}
                     icon={skill.image}
                     label={skill.label}
@@ -79,7 +102,7 @@ const DetailProject = () => {
           </div>
         </div>
       </div>
-      <div className={styles["description-wrap"]}>
+      <div className={descriptionWrapClasses}>
         <p className={styles["description"]}>{project.description}</p>
       </div>
       <div className={styles["screenshot-images-wrap"]}>
@@ -88,9 +111,12 @@ const DetailProject = () => {
       {project &&
         (!project.screenshots || project.screenshots.length === 0) && (
           <div className={styles["screenshots-wrap"]}>
-            <img src={withoutScreenshotImg} alt="Screenshot" />
+            <WithoutIcon
+              className={styles["img"]}
+              fill={theme === "dark" ? "#2E2E2E" : "#E1E1E1"}
+            />
             <div className={styles["screenshots-text"]}>
-              <p>No screenshot</p>
+              <p className={textClasses}>No screenshot</p>
             </div>
           </div>
         )}

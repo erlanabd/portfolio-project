@@ -58,7 +58,11 @@ const Skills = () => {
         {filteredSkills.map(renderFilteredSkills)}
       </div>
       {filteredSkills.length === 0 && (
-        <EmptyList text="Could not find anything ..." />
+        <EmptyList
+          icon="false"
+          theme={theme}
+          text="Could not find anything ..."
+        />
       )}
     </section>
   );

@@ -1,4 +1,6 @@
 @import './../../../assets/styles/light-theme.scss';
+@import './../../../assets/styles/colors.scss';
+
 
 
 .card-box {
@@ -58,6 +60,9 @@
             font-size: 14.4px;
             letter-spacing: 1px;
             color: $accent-text;
+            &.date-text-dark {
+                color: $light-3;
+            }
           }
         }
         .experience {
@@ -82,6 +87,9 @@
     position: absolute;
     top: 50%;
     left: 47.6%;
+    &.condition-icon-wrap-dark {
+        background-color: #000;
+    }
 
 }
 .condition-icon {

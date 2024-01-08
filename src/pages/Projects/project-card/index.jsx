@@ -9,23 +9,37 @@ import { Link } from "react-router-dom";
 import { clsx } from "clsx";
 
 const ProjectCard = (props) => {
-  const { project, className } = props;
+  const { project, className, theme } = props;
   const cardClasses = clsx({
     [className]: className,
+  });
+  const titleWrapClasses = clsx(styles["title-wrap"], {
+    [styles["title-wrap-dark"]]: theme === "dark",
+  });
+  const templateWrapClasses = clsx(styles["template-wrap"], {
+    [styles["template-wrap-dark"]]: theme === "dark",
+  });
+  const bodyClasses = clsx(styles["body"], {
+    [styles["body-dark"]]: theme === "dark",
   });
   const handleClick = (e) => {
     e.stopPropagation();
   };
   return (
-    <Link key={project.id} className={cardClasses} to={`/projects/${project.id}`}>
-      <BoxLayout className={styles["project-card-wrap"]}>
+    <Link
+      key={project.id}
+      className={cardClasses}
+      to={`/projects/${project.id}`}
+    >
+      <BoxLayout theme={theme} className={styles["project-card-wrap"]}>
         <div className={styles["img-wrap"]}>
           <img src={project.icon} alt="Project" />
         </div>
-        <div className={styles["title-wrap"]}>
+        <div className={titleWrapClasses}>
           <h6 className={styles["title"]}>{project.name}</h6>
           {project.links.map((link) => (
             <CardLink
+            theme={theme}
               key={link.id}
               to={link.link}
               onClick={handleClick}
@@ -33,21 +47,32 @@ const ProjectCard = (props) => {
             />
           ))}
         </div>
-        <div className={styles["body"]}>
-          <div className={styles["template-wrap"]}>
+        <div className={bodyClasses}>
+          <div className={templateWrapClasses}>
             <span className={styles["template-title"]}>Website Template</span>
             <span>1 day</span>
           </div>
           <p className={styles["description"]}>{project.el}</p>
           <div className={styles["chips-wrap"]}>
-            <Chip className={styles["chip"]} onClick label="December 2023" />
-            <Chip className={styles["chip"]} onClick label="now" />
+            <Chip
+              theme={theme}
+              className={styles["chip"]}
+              onClick
+              label="December 2023"
+            />
+            <Chip
+              theme={theme}
+              className={styles["chip"]}
+              onClick
+              label="now"
+            />
           </div>
         </div>
         <div className={styles["chip-icon-wrap"]}>
           {project.skills.map((skill) => {
             return (
               <ChipIcon
+              theme={theme}
                 key={skill.id}
                 className={styles["chip-icon"]}
                 label={skill.label}

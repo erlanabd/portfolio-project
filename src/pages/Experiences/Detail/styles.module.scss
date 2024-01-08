@@ -1,10 +1,15 @@
 
 @import './../../../assets/styles/light-theme.scss';
+@import './../../../assets/styles/colors.scss';
+
 
 .detail-wrap {
     .title-box {
     padding: 32px 0 80px 0;
     border-bottom: 1px solid $border;
+    &.title-box-dark {
+    border-bottom: 1px solid $dark-2;
+    }
     position: relative;
         .title-wrap{
             display: flex;
@@ -16,13 +21,17 @@
                 font-size: 57px;
                 font-weight: 900;
                 letter-spacing: 4px;
+                background: linear-gradient($dark-0, $dark-4); 
                 background-attachment: scroll;
-                background-clip: text;
-                background-color: rgb(0, 0, 0);
-                background-image: linear-gradient(rgb(0, 0, 0), rgb(78, 78, 78));
-                background-size: auto;
-                -webkit-background-clip: text;
+                background-clip: text; 
+                -webkit-background-clip: text; 
                 -webkit-text-fill-color: transparent;
+            &.title-dark {
+                background: linear-gradient($light-0, $light-4); 
+                background-clip: text; 
+                -webkit-background-clip: text; 
+                -webkit-text-fill-color: transparent;
+            }
             }
             .date {
                 margin: 12px 0;
@@ -31,6 +40,9 @@
                     font-size: 16px;
                     letter-spacing: 1px;
                     color: $accent-text;
+                    &.date-text-dark {
+                        color: $light-2;
+                    }
                 }
             }
             .border {
@@ -40,6 +52,9 @@
                 background: $border;
                 margin-top: 10px;
                 margin-bottom: 10px;
+                &.border-dark {
+                    background: $dark-2;
+                }
             }
             .image-wrap {
                 position: absolute;
@@ -63,6 +78,11 @@
                     left: 0;
                     background: rgb(255,255,255);
                     background: linear-gradient(90deg, rgba(255,255,255,1) 0%, rgba(255,255,255,0.836594012605042) 71%, rgba(255,255,255,0.5872942927170868) 100%);
+                }
+                &.img-dark {
+                    &::before {
+                           background: linear-gradient(90deg,$dark-0 0%,$dark-0 10%,$dark-0-60 100%),no-repeat right 40%/40%;
+                    }
                 }
                 
             }

@@ -6,9 +6,11 @@ import experiencesOperation from "./../../redux/experiences/thunk";
 import EmptyList from "../../components/empty-list";
 import expIcon from "./../../assets/icons/experience-icon.svg";
 import styles from "./styles.module.scss";
+import clsx from "clsx";
 
 const Experiences = () => {
   const experiences = useSelector((state) => state.experiences.list);
+  const theme = useSelector((state) => state.theme);
   const dispatch = useDispatch();
   const isLoading = useSelector((state) => state.experiences.isFetching);
 
@@ -19,10 +21,12 @@ const Experiences = () => {
     if (inputValue === "") {
       return experience;
     } else {
-      return experience.title
-        .toLowerCase()
-        .includes(inputValue);
+      return experience.title.toLowerCase().includes(inputValue);
     }
+  });
+
+  const verticalLineClasses = clsx(styles["vertical-line"], {
+    [styles["vertical-line-dark"]]: theme === "dark",
   });
 
   useEffect(() => {
@@ -38,6 +42,7 @@ const Experiences = () => {
   const renderFilteredExperienceCards = (card, idx) => {
     return (
       <ExperienceCard
+        theme={theme}
         key={card.id}
         data={card}
         className={idx % 2 !== 0 ? styles["card-row"] : styles["card"]}
@@ -58,10 +63,10 @@ const Experiences = () => {
       />
       <div className={styles["exp-cards-wrap"]}>
         {filteredExperiences.map(renderFilteredExperienceCards)}
-        <div className={styles["vertical-line"]}></div>
+        <div className={verticalLineClasses}></div>
       </div>
       {filteredExperiences.length === 0 && (
-        <EmptyList icon={expIcon} className={styles["empty-list"]} />
+        <EmptyList theme={theme} icon="true" className={styles["empty-list"]} />
       )}
     </div>
   );

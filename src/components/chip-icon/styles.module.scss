@@ -1,4 +1,6 @@
 @import './../../assets/styles/light-theme.scss';
+@import './../../assets/styles/colors.scss';
+
 
 .chip-icon {
     display: flex;
@@ -9,6 +11,10 @@
     width: 37px;
     height: 37px;
     border-radius: 10px;
+    &.chip-icon-dark {
+    border: 1px solid $dark-2;
+        
+    }
     .img-wrap {
         width: 15px;
         height: 15px;

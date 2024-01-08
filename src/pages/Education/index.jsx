@@ -6,9 +6,11 @@ import EmptyList from "../../components/empty-list";
 import expIcon from "./../../assets/icons/experience-icon.svg";
 import styles from "./styles.module.scss";
 import EducationCard from "./education-card";
+import clsx from "clsx";
 
 const Education = () => {
   const education = useSelector((state) => state.education.list);
+  const theme = useSelector((state) => state.theme);
   const dispatch = useDispatch();
   const isLoading = useSelector((state) => state.experiences.isFetching);
 
@@ -21,6 +23,10 @@ const Education = () => {
     } else {
       return education.title.toLowerCase().includes(inputValue);
     }
+  });
+
+  const verticalLineClasses = clsx(styles["vertical-line"], {
+    [styles["vertical-line-dark"]]: theme === "dark",
   });
 
   useEffect(() => {
@@ -36,6 +42,7 @@ const Education = () => {
   const renderFilteredExperienceCards = (card, idx) => {
     return (
       <EducationCard
+        theme={theme}
         key={card.id}
         data={card}
         className={idx % 2 !== 0 ? styles["card-row"] : styles["card"]}
@@ -52,10 +59,10 @@ const Education = () => {
       <SearchBar value={inputValue} onChange={inputHandler} title="Education" />
       <div className={styles["exp-cards-wrap"]}>
         {filteredExperiences.map(renderFilteredExperienceCards)}
-        <div className={styles["vertical-line"]}></div>
+        <div className={verticalLineClasses}></div>
       </div>
       {filteredExperiences.length === 0 && (
-        <EmptyList icon={expIcon} className={styles["empty-list"]} />
+        <EmptyList icon="true" theme={theme} className={styles["empty-list"]} />
       )}
     </div>
   );

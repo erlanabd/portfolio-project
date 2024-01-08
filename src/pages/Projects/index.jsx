@@ -6,22 +6,24 @@ import projectsOperation from "./../../redux/projects/thunk";
 import { useDispatch, useSelector } from "react-redux";
 import styles from "./styles.module.scss";
 import EmptyList from "../../components/empty-list";
+import { clsx } from "clsx";
 
 const Projects = () => {
   const projects = useSelector((state) => state.projects.list);
+  const theme = useSelector((state) => state.theme);
   const dispatch = useDispatch();
   const isLoading = useSelector((state) => state.projects.isFetching);
 
   const { fetchProjects } = projectsOperation;
   const [inputValue, setInputValue] = useState("");
 
+
+
   const filteredProjects = projects.filter((project) => {
     if (inputValue === "") {
       return project;
     } else {
-      return project.name
-        .toLowerCase()
-        .includes(inputValue);
+      return project.name.toLowerCase().includes(inputValue);
     }
   });
 
@@ -37,7 +39,7 @@ const Projects = () => {
 
   const renderFilteredProjectCards = (item, idx) => {
     return (
-      <ProjectCard key={item.id} className={styles["card"]} project={item} />
+      <ProjectCard theme={theme} key={item.id} className={styles["card"]} project={item} />
     );
   };
 
@@ -50,18 +52,21 @@ const Projects = () => {
       <SearchBar title="Projects" value={inputValue} onChange={inputHandler} />
       <div className={styles["chips-wrap"]}>
         <Chip
+          theme={theme}
           asLink={"/skills/ts"}
           className={styles["chip"]}
           onClick
           label="Typescript"
         />
         <Chip
+          theme={theme}
           asLink={"/skills/sass"}
           className={styles["chip"]}
           onClick
           label="Sass"
         />
         <Chip
+          theme={theme}
           asLink={"/skills/svelte"}
           className={styles["chip"]}
           onClick
@@ -71,7 +76,9 @@ const Projects = () => {
       <div className={styles["cards-wrap"]}>
         {filteredProjects.map(renderFilteredProjectCards)}
       </div>
-      {filteredProjects.length === 0 && <EmptyList />}
+      {filteredProjects.length === 0 && (
+        <EmptyList icon="false" theme={theme} />
+      )}
     </div>
   );
 };
