@@ -5,15 +5,17 @@ import Chip from "../../components/chip";
 import styles from "./styles.module.scss";
 
 const Resume = () => {
-  const theme = useSelector((state) => state.theme)
+  const theme = useSelector((state) => state.theme);
+
   const titleClasses = clsx(styles["title"], {
     [styles["title-dark"]]: theme === "dark",
   });
+
   return (
     <div className={styles["resume-wrap"]}>
       <h2 className={titleClasses}>Resumé</h2>
       <Chip
-      theme={theme}
+        theme={theme}
         className={styles["chip"]}
         onClick
         label="Ooops! No CV at the moment"

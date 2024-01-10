@@ -9,6 +9,7 @@ import { Link } from "react-router-dom";
 
 const ExperienceCard = (props) => {
   const { className, data, theme } = props;
+
   const cardClasses = clsx(styles["card-box"], {
     [className]: className,
   });
@@ -18,8 +19,9 @@ const ExperienceCard = (props) => {
   const conditionWrapClasses = clsx(styles["condition-icon-wrap"], {
     [styles["condition-icon-wrap-dark"]]: theme === "dark",
   });
+
   return (
-    <div key={data.id} className={cardClasses}>
+    <div className={cardClasses}>
       <Link className={styles["link"]} to={`/experiences/${data.name}`}>
         <BoxLayout theme={theme} className={styles["card"]}>
           <div className={styles["img-wrap"]}>
@@ -33,8 +35,8 @@ const ExperienceCard = (props) => {
                 data.types.map((type, idx) => {
                   return (
                     <Exp
-                      theme={theme}
                       key={type.id}
+                      theme={theme}
                       className={styles["exp"]}
                       value="Company: Self employed"
                       type={type.type}
@@ -58,6 +60,7 @@ const ExperienceCard = (props) => {
                 data.skills.map((skill, idx) => {
                   return (
                     <ChipIcon
+                      key={skill.id}
                       theme={theme}
                       className={styles["icon"]}
                       label={"Javascript"}

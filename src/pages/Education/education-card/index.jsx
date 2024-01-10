@@ -36,6 +36,7 @@ const EducationCard = (props) => {
               data.subjects.map((subject, idx) => {
                 return (
                   <Chip
+                    key={subject.id}
                     theme={theme}
                     marginTop
                     className={styles["icon"]}
@@ -48,8 +49,10 @@ const EducationCard = (props) => {
         </div>
       </BoxLayout>
       <div className={conditionWrapClasses}>
-        <ConditionIcon  fill={theme === "dark" ? "#fff" : "#000"}
-          className={styles["condition-icon"]} />
+        <ConditionIcon
+          fill={theme === "dark" ? "#fff" : "#000"}
+          className={styles["condition-icon"]}
+        />
       </div>
     </div>
   );

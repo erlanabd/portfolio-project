@@ -4,7 +4,6 @@ import SearchBar from "../../components/search-bar";
 import ExperienceCard from "./experience-card";
 import experiencesOperation from "./../../redux/experiences/thunk";
 import EmptyList from "../../components/empty-list";
-import expIcon from "./../../assets/icons/experience-icon.svg";
 import styles from "./styles.module.scss";
 import clsx from "clsx";
 
@@ -42,8 +41,8 @@ const Experiences = () => {
   const renderFilteredExperienceCards = (card, idx) => {
     return (
       <ExperienceCard
-        theme={theme}
         key={card.id}
+        theme={theme}
         data={card}
         className={idx % 2 !== 0 ? styles["card-row"] : styles["card"]}
       />

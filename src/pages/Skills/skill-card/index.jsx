@@ -1,5 +1,6 @@
 import { clsx } from "clsx";
 import React from "react";
+import BoxImage from "../../../components/box-image";
 import BoxLayout from "../../../components/box-layout";
 import styles from "./styles.module.scss";
 
@@ -17,9 +18,7 @@ const SkillCard = (props) => {
   return (
     <BoxLayout theme={theme} className={styles["skill-card"]}>
       <h3 className={titleClasses}>{title}</h3>
-      <div className={imgClasses}>
-        <img  src={image} alt="Skill logo" />
-      </div>
+      <BoxImage className={imgClasses} image={image} />
     </BoxLayout>
   );
 };

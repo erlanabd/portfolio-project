@@ -1,12 +1,11 @@
 import { SHORT_SKILL_BY_SLUG } from "../Skills/mock_data";
 import projectOneImg from "./../../assets/images/no-img.svg";
 import projectTwoImg from "./../../assets/images/svelte-logo.png";
-import screenshot1 from './../../assets/images/screenshot1.jpeg'
-import screenshot2 from './../../assets/images/screenshot2.jpeg'
-import screenshot3 from './../../assets/images/screenshot3.png'
-import screenshot4 from './../../assets/images/screenshot4.jpeg'
-import screenshot5 from './../../assets/images/screenshot5.avif'
-
+import screenshot1 from "./../../assets/images/screenshot1.jpeg";
+import screenshot2 from "./../../assets/images/screenshot2.jpeg";
+import screenshot3 from "./../../assets/images/screenshot3.png";
+import screenshot4 from "./../../assets/images/screenshot4.jpeg";
+import screenshot5 from "./../../assets/images/screenshot5.avif";
 
 export const PROJECT_BY_ID = (id) => {
   const findProject = PROJECTS_DATA.find((project) => project.id === id);
@@ -20,7 +19,7 @@ export const PROJECT_BY_ID = (id) => {
     links: findProject.links,
     description: findProject.el,
     skills: findProject.skills,
-    screenshots: findProject.screenshots
+    screenshots: findProject.screenshots,
   };
 };
 
@@ -31,7 +30,7 @@ export const PROJECTS_DATA = [
     name: "First Slick Portfolio",
     links: [
       {
-        id: 0,
+        id: "0",
         link: "https://github.com",
         label: "Github",
       },
@@ -46,7 +45,7 @@ export const PROJECTS_DATA = [
     name: "Second Slick Portfolio",
     links: [
       {
-        id: 0,
+        id: "0",
         link: "htts://github.com",
         label: "Github",
       },
@@ -59,20 +58,25 @@ export const PROJECTS_DATA = [
     ],
     screenshots: [
       {
-        image: screenshot1
+        id: "0",
+        image: screenshot1,
       },
       {
-        image: screenshot2
+        id: "1",
+        image: screenshot2,
       },
       {
-        image: screenshot3
+        id: "2",
+        image: screenshot3,
       },
       {
-        image: screenshot4
+        id: "3",
+        image: screenshot4,
       },
       {
-        image: screenshot5
-      }
-    ]
+        id: "4",
+        image: screenshot5,
+      },
+    ],
   },
 ];

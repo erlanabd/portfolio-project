@@ -7,29 +7,21 @@ import { ReactComponent as WithoutIcon } from "./../../../assets/images/without-
 import linkIcon from "./../../../assets/icons/paper-clip.svg";
 import styles from "./styles.module.scss";
 import clsx from "clsx";
+import MainTitle from "../../../components/main-title";
+import BoxImage from "../../../components/box-image";
+import BoxTitle from "../../../components/box-title";
 
 const DetailProject = () => {
+  
   const { id } = useParams();
-  const data = useSelector((state) => state.projects.data);
   const theme = useSelector((state) => state.theme);
-
+  const dispatch = useDispatch();
+  const { fetchProjectById } = projectsOperation;
+  const data = useSelector((state) => state.projects.data);
   const project = {
     ...data,
   };
 
-  console.log(data);
-
-  const dispatch = useDispatch();
-  const { fetchProjectById } = projectsOperation;
-  const titleClasses = clsx(styles["title"], {
-    [styles["title-dark"]]: theme === "dark",
-  });
-  const imgClasses = clsx(styles["image-wrap"], {
-    [styles["img-dark"]]: theme === "dark",
-  });
-  const titleBoxClasses = clsx(styles["title-box"], {
-    [styles["title-box-dark"]]: theme === "dark",
-  });
   const borderClasses = clsx(styles["border"], {
     [styles["border-dark"]]: theme === "dark",
   });
@@ -66,13 +58,11 @@ const DetailProject = () => {
 
   return (
     <div key={project.id} className={styles["detail-wrap"]}>
-      <div className={titleBoxClasses}>
+      <BoxTitle className={styles["title-box"]}>
         <div className={styles["title-wrap"]}>
-          <h2 className={titleClasses}>{project.name}</h2>
+          <MainTitle className={styles["title"]}>{project.name}</MainTitle>
           <span className={styles["text"]}>Website Template</span>
-          <div className={imgClasses}>
-            <img src={project.icon} alt="Skill logo" />
-          </div>
+          <BoxImage image={project.icon} />
           <div className={borderClasses}></div>
         </div>
         <div className={styles["chips-wrap"]}>
@@ -91,6 +81,7 @@ const DetailProject = () => {
               project.skills.map((skill) => {
                 return (
                   <Chip
+                    key={skill.id}
                     theme={theme}
                     className={styles["chip"]}
                     icon={skill.image}
@@ -101,7 +92,7 @@ const DetailProject = () => {
               })}
           </div>
         </div>
-      </div>
+      </BoxTitle>
       <div className={descriptionWrapClasses}>
         <p className={styles["description"]}>{project.description}</p>
       </div>

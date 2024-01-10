@@ -1,11 +1,7 @@
 import React, { useEffect, useState } from "react";
 import EmptyList from "../../components/empty-list";
-import searchIcon from "./../../assets/icons/search-in-search-page.svg";
 import SearchBar from "../../components/search-bar";
 import { SKILLS_DATA } from "../Skills/mock_data";
-import cubeIcon from "./../../assets/icons/cube.svg";
-import skillsIcon from "./../../assets/icons/skills-icon.svg";
-import experienceIcon from "./../../assets/icons/experience-icon.svg";
 import Chip from "../../components/chip";
 import { PROJECTS_DATA } from "../Projects/mock_data";
 import { EXPERIENCE_DATA } from "../Experiences/mock_data";
@@ -23,6 +19,11 @@ const Search = () => {
       return skill.label.toLowerCase().includes(inputValue.toLocaleLowerCase());
     }
   });
+
+  const inputHandler = (value) => {
+    setInputValue(value.toLowerCase());
+    localStorage.setItem("inputSkillsValue", value);
+  };
 
   const filteredProjects = PROJECTS_DATA.filter((project) => {
     if (inputValue === "") {
@@ -48,10 +49,6 @@ const Search = () => {
     setInputValue(localStorage.getItem("inputSkillsValue"));
   }, []);
 
-  const inputHandler = (value) => {
-    setInputValue(value.toLowerCase());
-    localStorage.setItem("inputSkillsValue", value);
-  };
   return (
     <div>
       <SearchBar value={inputValue} onChange={inputHandler} title="Search" />

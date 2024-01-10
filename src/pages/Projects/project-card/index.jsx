@@ -7,14 +7,13 @@ import styles from "./styles.module.scss";
 
 import { Link } from "react-router-dom";
 import { clsx } from "clsx";
+import BoxTitle from "../../../components/box-title";
 
 const ProjectCard = (props) => {
   const { project, className, theme } = props;
+
   const cardClasses = clsx({
     [className]: className,
-  });
-  const titleWrapClasses = clsx(styles["title-wrap"], {
-    [styles["title-wrap-dark"]]: theme === "dark",
   });
   const templateWrapClasses = clsx(styles["template-wrap"], {
     [styles["template-wrap-dark"]]: theme === "dark",
@@ -22,9 +21,11 @@ const ProjectCard = (props) => {
   const bodyClasses = clsx(styles["body"], {
     [styles["body-dark"]]: theme === "dark",
   });
+
   const handleClick = (e) => {
     e.stopPropagation();
   };
+
   return (
     <Link
       key={project.id}
@@ -35,18 +36,18 @@ const ProjectCard = (props) => {
         <div className={styles["img-wrap"]}>
           <img src={project.icon} alt="Project" />
         </div>
-        <div className={titleWrapClasses}>
+        <BoxTitle className={styles["title-wrap"]}>
           <h6 className={styles["title"]}>{project.name}</h6>
           {project.links.map((link) => (
             <CardLink
-            theme={theme}
+              theme={theme}
               key={link.id}
               to={link.link}
               onClick={handleClick}
               label={link.label}
             />
           ))}
-        </div>
+        </BoxTitle>
         <div className={bodyClasses}>
           <div className={templateWrapClasses}>
             <span className={styles["template-title"]}>Website Template</span>
@@ -72,7 +73,7 @@ const ProjectCard = (props) => {
           {project.skills.map((skill) => {
             return (
               <ChipIcon
-              theme={theme}
+                theme={theme}
                 key={skill.id}
                 className={styles["chip-icon"]}
                 label={skill.label}

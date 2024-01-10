@@ -3,7 +3,6 @@ import { useDispatch, useSelector } from "react-redux";
 import SearchBar from "../../components/search-bar";
 import experiencesOperation from "./../../redux/education/thunk";
 import EmptyList from "../../components/empty-list";
-import expIcon from "./../../assets/icons/experience-icon.svg";
 import styles from "./styles.module.scss";
 import EducationCard from "./education-card";
 import clsx from "clsx";
@@ -42,8 +41,8 @@ const Education = () => {
   const renderFilteredExperienceCards = (card, idx) => {
     return (
       <EducationCard
-        theme={theme}
         key={card.id}
+        theme={theme}
         data={card}
         className={idx % 2 !== 0 ? styles["card-row"] : styles["card"]}
       />

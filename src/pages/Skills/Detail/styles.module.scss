@@ -6,60 +6,14 @@
 .detail-page-wrap{
     margin: 0;
     padding: 0;
-    .title-wrap {
-        border-bottom: 1px solid $border;
-        position: relative;
-        &.title-wrap-dark {
-            border-bottom: 1px solid $dark-2;
-        }
         .title {
-            font-size: 64px;
-            font-weight: 900;
-            text-align: center;
             padding: 110px 0;
-            letter-spacing: 4px;
-            background: linear-gradient($dark-0, $dark-4); 
-            background-attachment: scroll;
-            background-clip: text; 
-            -webkit-background-clip: text; 
-            -webkit-text-fill-color: transparent;
-        &.title-dark {
-            background: linear-gradient($light-0, $light-4); 
-            background-clip: text; 
-            -webkit-background-clip: text; 
-            -webkit-text-fill-color: transparent;
-        }
         }
         .image-wrap {
-            position: absolute;
-            top: 0;
-            right: 0;
             height: 100%;
             width: 50%;
             z-index: -1;
-            img {
-                display: block;
-                width: 100%;
-                height: 100%;
-                object-fit: cover;
-            }
-            &::before {
-                content: '';
-                position: absolute;
-                width: 100%;
-                height: 100%;
-                top: 0;
-                left: 0;
-                background: rgb(255,255,255);
-                background: linear-gradient(90deg, rgba(255,255,255,1) 0%, rgba(255,255,255,0.836594012605042) 71%, rgba(255,255,255,0.5872942927170868) 100%);
-            }
-            &.img-dark {
-                &::before {
-                       background: linear-gradient(90deg,$dark-0 0%,$dark-0 10%,$dark-0-60 100%),no-repeat right 40%/40%;
-                }
-            }
         }
-    }
     .description {
         letter-spacing: 1px;
         line-height: 28px;

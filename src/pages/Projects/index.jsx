@@ -6,18 +6,14 @@ import projectsOperation from "./../../redux/projects/thunk";
 import { useDispatch, useSelector } from "react-redux";
 import styles from "./styles.module.scss";
 import EmptyList from "../../components/empty-list";
-import { clsx } from "clsx";
 
 const Projects = () => {
   const projects = useSelector((state) => state.projects.list);
   const theme = useSelector((state) => state.theme);
   const dispatch = useDispatch();
   const isLoading = useSelector((state) => state.projects.isFetching);
-
   const { fetchProjects } = projectsOperation;
   const [inputValue, setInputValue] = useState("");
-
-
 
   const filteredProjects = projects.filter((project) => {
     if (inputValue === "") {
@@ -39,7 +35,12 @@ const Projects = () => {
 
   const renderFilteredProjectCards = (item, idx) => {
     return (
-      <ProjectCard theme={theme} key={item.id} className={styles["card"]} project={item} />
+      <ProjectCard
+        theme={theme}
+        key={item.id}
+        className={styles["card"]}
+        project={item}
+      />
     );
   };
 

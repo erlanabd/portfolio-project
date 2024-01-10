@@ -20,6 +20,7 @@ const Home = () => {
   const mainInfoClasses = clsx(styles["main-info"], {
     [styles["main-info-dark"]]: theme === "dark",
   });
+
   return (
     <div className={styles["home-page-wrap"]}>
       <div className={styles["info-wrap"]}>
@@ -32,7 +33,6 @@ const Home = () => {
         </div>
         <div className={styles["icons-wrap"]}>
           <a target="_blank" href="https://github.com">
-            {/* <i className={`${styles["icon"]} ${styles["github-icon"]}`}></i> */}
             <GithubIcon
               fill={theme === "dark" ? "#C1C1C1" : "#3E3E3E"}
               className={styles["icon"]}
@@ -76,9 +76,8 @@ const Home = () => {
           </a>
         </div>
       </div>
-
       <div className={styles["slider"]}>
-        <SkillsSlider theme={theme}/>
+        <SkillsSlider theme={theme} />
       </div>
     </div>
   );

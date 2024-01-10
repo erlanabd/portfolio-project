@@ -1,5 +1,5 @@
 import { clsx } from "clsx";
-import React from "react";
+import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { changeTheme } from "../../redux/theme/actions";
@@ -32,11 +32,26 @@ const Header = () => {
     if (theme === "dark") {
       dispatch(changeTheme("light"));
       body.style.background = "#fff";
+      localStorage.setItem("theme", "light");
     } else {
       dispatch(changeTheme("dark"));
+      localStorage.setItem("theme", "dark");
       body.style.background = "#000";
     }
   };
+
+  // Надо сделать нормально
+  useEffect(() => {
+     const body = document.querySelector("body");
+     if (localStorage.getItem("theme") === "dark") {
+       dispatch(changeTheme("dark"));
+       body.style.background = "#000";
+     }
+     if (localStorage.getItem("light") === "dark") {
+       dispatch(changeTheme("light"));
+       body.style.background = "#fff";
+     }
+   }, []);
 
   return (
     <div className={styles["header"]}>

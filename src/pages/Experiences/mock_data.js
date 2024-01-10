@@ -26,12 +26,18 @@ export const EXPERIENCE_DATA = [
     title: "Open Source Developer",
     types: [
       {
+        id: "0",
+
         type: "company",
       },
       {
+        id: "1",
+
         type: "location",
       },
       {
+        id: "2",
+
         type: "contract",
       },
     ],
@@ -48,12 +54,18 @@ export const EXPERIENCE_DATA = [
     title: "Freelancer",
     types: [
       {
+        id: "0",
+
         type: "company",
       },
       {
+        id: "1",
+
         type: "location",
       },
       {
+        id: "2",
+
         type: "contract",
       },
     ],
@@ -77,12 +89,18 @@ export const EXPERIENCE_DATA = [
     title: "Junior Freelancer",
     types: [
       {
+        id: "0",
+
         type: "company",
       },
       {
+        id: "1",
+
         type: "location",
       },
       {
+        id: "2",
+
         type: "contract",
       },
     ],

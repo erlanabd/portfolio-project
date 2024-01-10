@@ -5,27 +5,20 @@ import { useParams } from "react-router-dom";
 import Chip from "../../../components/chip";
 import skillsOperation from "./../../../redux/skills/thunk";
 import styles from "./styles.module.scss";
+import MainTitle from "../../../components/main-title";
+import BoxImage from "../../../components/box-image";
+import BoxTitle from "../../../components/box-title";
 
 const DetailSkill = () => {
+
   const { slug } = useParams();
   const data = useSelector((state) => state.skills.data);
   const theme = useSelector((state) => state.theme);
+  const { fetchSkillBySlug } = skillsOperation;
   const dispatch = useDispatch();
   const newData = {
     ...data,
   };
-
-  const { fetchSkillBySlug } = skillsOperation;
-
-  const titleClasses = clsx(styles["title"], {
-    [styles["title-dark"]]: theme === "dark",
-  });
-  const imgClasses = clsx(styles["image-wrap"], {
-    [styles["img-dark"]]: theme === "dark",
-  });
-  const titleDivClasses = clsx(styles["title-wrap"], {
-    [styles["title-wrap-dark"]]: theme === "dark",
-  });
   const descriptionClasses = clsx(styles["description"], {
     [styles["description-dark"]]: theme === "dark",
   });
@@ -36,12 +29,10 @@ const DetailSkill = () => {
 
   return (
     <div key={newData.id} className={styles["detail-page-wrap"]}>
-      <div className={titleDivClasses}>
-        <h1 className={titleClasses}>{newData.label}</h1>
-        <div className={imgClasses}>
-          <img src={newData.image} alt="Skill logo" />
-        </div>
-      </div>
+      <BoxTitle>
+        <MainTitle className={styles["title"]}>{newData.label}</MainTitle>
+        <BoxImage image={newData.image} label="skill-logo" />
+      </BoxTitle>
       <p className={descriptionClasses}>{newData.description}</p>
       <div className={styles["chips-wrap"]}>
         {newData &&
