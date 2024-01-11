@@ -57,7 +57,7 @@ const DetailProject = () => {
   };
 
   return (
-    <div key={project.id} className={styles["detail-wrap"]}>
+    <section key={project.id} className={styles["detail-wrap"]}>
       <BoxTitle className={styles["title-box"]}>
         <div className={styles["title-wrap"]}>
           <MainTitle className={styles["title"]}>{project.name}</MainTitle>
@@ -111,7 +111,7 @@ const DetailProject = () => {
             </div>
           </div>
         )}
-    </div>
+    </section>
   );
 };
 

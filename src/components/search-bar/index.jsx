@@ -9,7 +9,7 @@ const SearchBar = (props) => {
 
   const { placeholder = "Search...", value, onChange, type, title } = props;
   return (
-    <div className={styles["search-bar"]}>
+    <section className={styles["search-bar"]}>
       <MainTitle>{title}</MainTitle>
       <Input
         theme={theme}
@@ -18,7 +18,7 @@ const SearchBar = (props) => {
         onChange={onChange}
         type={type}
       />
-    </div>
+    </section>
   );
 };
 

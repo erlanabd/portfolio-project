@@ -42,19 +42,19 @@ const Header = () => {
 
   // Надо сделать нормально
   useEffect(() => {
-     const body = document.querySelector("body");
-     if (localStorage.getItem("theme") === "dark") {
-       dispatch(changeTheme("dark"));
-       body.style.background = "#000";
-     }
-     if (localStorage.getItem("light") === "dark") {
-       dispatch(changeTheme("light"));
-       body.style.background = "#fff";
-     }
-   }, []);
+    const body = document.querySelector("body");
+    if (localStorage.getItem("theme") === "dark") {
+      dispatch(changeTheme("dark"));
+      body.style.background = "#000";
+    }
+    if (localStorage.getItem("light") === "dark") {
+      dispatch(changeTheme("light"));
+      body.style.background = "#fff";
+    }
+  }, []);
 
   return (
-    <div className={styles["header"]}>
+    <header className={styles["header"]}>
       <nav className={styles["header__navbar"]}>
         <ul className={styles["header__list"]}>
           <Link className={styles["link"]} to={"/"}>
@@ -117,7 +117,7 @@ const Header = () => {
           {theme === "dark" && <MoonIcon className={themeIconClasses} />}
         </div>
       </nav>
-    </div>
+    </header>
   );
 };
 

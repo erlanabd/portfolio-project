@@ -50,7 +50,7 @@ const Search = () => {
   }, []);
 
   return (
-    <div>
+    <section>
       <SearchBar value={inputValue} onChange={inputHandler} title="Search" />
       <div className={styles["search-elems-wrap"]}>
         {filteredSkills.map((skill) => {
@@ -113,7 +113,7 @@ const Search = () => {
             className={styles["empty-list"]}
           />
         )}
-    </div>
+    </section>
   );
 };
 

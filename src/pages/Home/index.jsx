@@ -23,7 +23,7 @@ const Home = () => {
 
   return (
     <div className={styles["home-page-wrap"]}>
-      <div className={styles["info-wrap"]}>
+      <section className={styles["info-wrap"]}>
         <h2 className={titleClasses}>Name LASTNAME,</h2>
         <div className={mainInfoClasses}>
           Lorem ipsum dolor sit, amet consectetur adipisicing elit. Corrupti,
@@ -75,7 +75,7 @@ const Home = () => {
             />
           </a>
         </div>
-      </div>
+      </section>
       <div className={styles["slider"]}>
         <SkillsSlider theme={theme} />
       </div>

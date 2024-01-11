@@ -12,7 +12,7 @@ const Resume = () => {
   });
 
   return (
-    <div className={styles["resume-wrap"]}>
+    <section className={styles["resume-wrap"]}>
       <h2 className={titleClasses}>Resumé</h2>
       <Chip
         theme={theme}
@@ -20,7 +20,7 @@ const Resume = () => {
         onClick
         label="Ooops! No CV at the moment"
       />
-    </div>
+    </section>
   );
 };
 

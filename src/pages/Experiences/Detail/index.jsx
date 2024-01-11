@@ -32,7 +32,7 @@ const DetailExperience = () => {
   }, []);
 
   return (
-    <div className={styles["detail-wrap"]}>
+    <section className={styles["detail-wrap"]}>
       <BoxTitle className={styles["title-box"]}>
         <div className={styles["title-wrap"]}>
           <MainTitle className={styles["title"]}>
@@ -73,7 +73,7 @@ const DetailExperience = () => {
       <div className={styles["description-wrap"]}>
         <p className={styles["description"]}>{experiencesDetail.description}</p>
       </div>
-    </div>
+    </section>
   );
 };
 

@@ -10,7 +10,6 @@ import BoxImage from "../../../components/box-image";
 import BoxTitle from "../../../components/box-title";
 
 const DetailSkill = () => {
-
   const { slug } = useParams();
   const data = useSelector((state) => state.skills.data);
   const theme = useSelector((state) => state.theme);
@@ -28,7 +27,7 @@ const DetailSkill = () => {
   }, []);
 
   return (
-    <div key={newData.id} className={styles["detail-page-wrap"]}>
+    <section key={newData.id} className={styles["detail-page-wrap"]}>
       <BoxTitle>
         <MainTitle className={styles["title"]}>{newData.label}</MainTitle>
         <BoxImage image={newData.image} label="skill-logo" />
@@ -50,7 +49,7 @@ const DetailSkill = () => {
             );
           })}
       </div>
-    </div>
+    </section>
   );
 };
 
