@@ -27,7 +27,7 @@ const EducationCard = (props) => {
           <span className={styles["subtitle"]}>{data.institution}</span>
           <div className={styles["date"]}>
             <span className={dateTextClasses}>
-              {data.country} · opa{data.period}
+              {data.country} · {data.period}
             </span>
           </div>
           <div className={styles["chips-wrap"]}>
