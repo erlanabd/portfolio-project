@@ -57,65 +57,74 @@ const Header = () => {
     <header className={styles["header"]}>
       <nav className={styles["header__navbar"]}>
         <ul className={styles["header__list"]}>
-          <Link className={styles["link"]} to={"/"}>
-            <li className={headerItemDarkHoverClasses}>
-              <LogoIcon className={styles["logo-icon"]} />
-              <span className={styles["header_title-text"]}>Name LASTNAME</span>
-            </li>
-          </Link>
-          <Link className={styles["link"]} to={"/skills"}>
-            <li className={headerItemDarkHoverClasses}>
-              <SkillsIcon className={styles["header__icons"]} />
-              <span className={styles["header_text"]}>Skills</span>
-            </li>
-          </Link>
-          <Link className={styles["link"]} to={"/projects"}>
-            <li className={headerItemDarkHoverClasses}>
-              <ProjectsIcon className={styles["header__icons"]} />
-              <span className={styles["header_text"]}>Projects</span>
-            </li>
-          </Link>
-          <Link className={styles["link"]} to={"/experiences"}>
-            <li className={headerItemDarkHoverClasses}>
-              <ExperiencesIcon className={styles["header__icons"]} />
-              <span className={styles["header_text"]}>Experiences</span>
-            </li>
-          </Link>
-          <Link className={styles["link"]} to={"/education"}>
-            <li className={headerItemDarkHoverClasses}>
-              <EducationIcon className={styles["header__icons"]} />
-              <span className={styles["header_text"]}>Education</span>
-            </li>
-          </Link>
-
-          <Link className={styles["link"]} to={"/resume"}>
-            <li className={headerItemDarkHoverClasses}>
-              <ResumeIcon className={styles["header__icons"]} />
-              <span className={styles["header_text"]}>Resume</span>
-            </li>
-          </Link>
-        </ul>
-        <Link
-          className={clsx(styles["header__icons-wrap"], {
-            [styles["header__icons-dark"]]: theme === "dark",
-          })}
-          to={"/search"}
-        >
-          <div className={styles["search-icon-wrap"]}>
-            <SearchIcon className={styles["header__icons"]} />
+          <div className={styles["header__list-box"]}>
+            <div>
+              <Link className={styles["link"]} to={"/"}>
+                <li className={headerItemDarkHoverClasses}>
+                  <LogoIcon className={styles["logo-icon"]} />
+                  <span className={styles["header_title-text"]}>
+                    Name LASTNAME
+                  </span>
+                </li>
+              </Link>
+            </div>
+            <div className={styles["header__list-box__item"]}>
+              <Link className={styles["link"]} to={"/skills"}>
+                <li className={headerItemDarkHoverClasses}>
+                  <SkillsIcon className={styles["header__icons"]} />
+                  <span className={styles["header_text"]}>Skills</span>
+                </li>
+              </Link>
+              <Link className={styles["link"]} to={"/projects"}>
+                <li className={headerItemDarkHoverClasses}>
+                  <ProjectsIcon className={styles["header__icons"]} />
+                  <span className={styles["header_text"]}>Projects</span>
+                </li>
+              </Link>
+              <Link className={styles["link"]} to={"/experiences"}>
+                <li className={headerItemDarkHoverClasses}>
+                  <ExperiencesIcon className={styles["header__icons"]} />
+                  <span className={styles["header_text"]}>Experiences</span>
+                </li>
+              </Link>
+              <Link className={styles["link"]} to={"/education"}>
+                <li className={headerItemDarkHoverClasses}>
+                  <EducationIcon className={styles["header__icons"]} />
+                  <span className={styles["header_text"]}>Education</span>
+                </li>
+              </Link>
+              <Link className={styles["link"]} to={"/resume"}>
+                <li className={headerItemDarkHoverClasses}>
+                  <ResumeIcon className={styles["header__icons"]} />
+                  <span className={styles["header_text"]}>Resume</span>
+                </li>
+              </Link>
+            </div>
+            <div className={styles["header__list-box__item"]}>
+              <Link
+                className={clsx(styles["header__icons-wrap"], {
+                  [styles["header__icons-dark"]]: theme === "dark",
+                })}
+                to={"/search"}
+              >
+                <div className={styles["search-icon-wrap"]}>
+                  <SearchIcon className={styles["header__icons"]} />
+                </div>
+              </Link>
+              <div
+                onClick={handleChangeTheme}
+                className={clsx(styles["light-icon-wrap"], {
+                  [styles["light-icon-dark"]]: theme === "dark",
+                })}
+              >
+                {(theme === "light" || theme === false) && (
+                  <SunIcon className={themeIconClasses} />
+                )}
+                {theme === "dark" && <MoonIcon className={themeIconClasses} />}
+              </div>
+            </div>
           </div>
-        </Link>
-        <div
-          onClick={handleChangeTheme}
-          className={clsx(styles["light-icon-wrap"], {
-            [styles["light-icon-dark"]]: theme === "dark",
-          })}
-        >
-          {(theme === "light" || theme === false) && (
-            <SunIcon className={themeIconClasses} />
-          )}
-          {theme === "dark" && <MoonIcon className={themeIconClasses} />}
-        </div>
+        </ul>
       </nav>
     </header>
   );
