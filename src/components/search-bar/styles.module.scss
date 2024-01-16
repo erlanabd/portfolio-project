@@ -1,26 +1,8 @@
 @import './../../assets/styles/light-theme.scss';
 
 .search-bar {
-    .title {
-        display: block;
-        font-size: 64px;
-        font-weight: 900;
-        letter-spacing: 4px;
-        margin-bottom: 20px;
-        text-align: center;
-        background: linear-gradient($dark-0, $dark-4); 
-        background-attachment: scroll;
-        background-clip: text; 
-        -webkit-background-clip: text; 
-        -webkit-text-fill-color: transparent;
-        &.title-dark {
-            background: linear-gradient($light-0, $light-4); 
-            background-clip: text; 
-            -webkit-background-clip: text; 
-            -webkit-text-fill-color: transparent;
-        }
-    }
     .input-dark {
         background-color: transparent
     }
 }
+

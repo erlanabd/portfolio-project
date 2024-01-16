@@ -1,36 +1,40 @@
-@import './../../../assets/styles/light-theme.scss';
+@import "./../../../assets/styles/light-theme.scss";
 @import "./../../../assets/styles/colors.scss";
 
-
-
-.detail-page-wrap{
-    margin: 0;
-    padding: 0;
-        .title {
-            padding: 110px 0;
-        }
-        .image-wrap {
-            height: 100%;
-            width: 50%;
-            z-index: -1;
-        }
-    .description {
-        letter-spacing: 1px;
-        line-height: 28px;
-        padding: 25px 0;
-        border-bottom: 1px solid $border;
-        &.description-dark {
-        border-bottom: 1px solid $dark-2;
-        }
+.detail-page-wrap {
+  margin: 0;
+  padding: 0;
+  .title {
+    padding: 110px 0;
+  }
+  .image-wrap {
+    height: 100%;
+    width: 50%;
+    z-index: -1;
+  }
+  .description {
+    letter-spacing: 1px;
+    line-height: 28px;
+    padding: 25px 0;
+    border-bottom: 1px solid $border;
+    &.description-dark {
+      border-bottom: 1px solid $dark-2;
     }
-    .chips-wrap {
-        display: flex;
-        flex-wrap: wrap;
-        margin-top: 16px;
-        margin-bottom: 5px;
-        margin-left: 8px;
-        .chip {
-            margin-right: 5px;
-        }
+  }
+  .chips-wrap {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 16px;
+    margin-bottom: 5px;
+    margin-left: 8px;
+    .chip {
+      margin-right: 5px;
     }
+  }
+}
+
+@media screen and (max-width: 951px) {
+  .chips-wrap {
+    gap: 5px;
+  }
 }

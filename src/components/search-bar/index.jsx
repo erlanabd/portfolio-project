@@ -10,7 +10,7 @@ const SearchBar = (props) => {
   const { placeholder = "Search...", value, onChange, type, title } = props;
   return (
     <section className={styles["search-bar"]}>
-      <MainTitle>{title}</MainTitle>
+      <MainTitle className={styles["title"]}>{title}</MainTitle>
       <Input
         theme={theme}
         value={value}

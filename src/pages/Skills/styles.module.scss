@@ -6,4 +6,12 @@
         gap: 20px;
         justify-content: center;
     }
+
+    @media screen and (max-width: 951px) {
+       .skills-list {
+        grid-template-columns: repeat(2, 430px);
+        gap: 10px;
+       }
+      }
 }
+
