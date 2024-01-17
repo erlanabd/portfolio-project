@@ -29,6 +29,18 @@
         display: flex;
         flex-direction: row;
     }
+    @media screen and (max-width: 951px) {
+        .exp-cards-wrap {
+            margin-top: 50px;
+        }
+        .vertical-line {
+            display: none;
+        }
+        .card-row {
+            display: block;
+        }
+    }
+   
 }
 
 .card-row {

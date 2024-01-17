@@ -2,14 +2,15 @@
     .skills-list {
         margin-top: 70px;
         display: grid;
-        grid-template-columns: repeat(3, 368px);
+        grid-template-columns: 1fr 1fr 1fr;
         gap: 20px;
         justify-content: center;
     }
 
     @media screen and (max-width: 951px) {
        .skills-list {
-        grid-template-columns: repeat(2, 430px);
+        display: grid;
+        grid-template-columns: 1fr 1fr;
         gap: 10px;
        }
       }

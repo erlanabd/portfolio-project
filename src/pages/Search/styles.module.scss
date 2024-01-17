@@ -1,12 +1,18 @@
 .empty-list {
-    margin-top: 150px;
+  margin-top: 150px;
 }
 .search-elems-wrap {
-    display: flex;
-    flex-wrap: wrap;
-    margin-top: 30px;
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 30px;
 }
 .chip {
-    margin-right: 15px;
-    margin-top: 15px;
+  margin-right: 15px;
+  margin-top: 15px;
+}
+
+@media screen and (max-width: 951px) {
+  .empty-list {
+    margin-top: 80px;
+  }
 }

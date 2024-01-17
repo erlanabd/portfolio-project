@@ -10,12 +10,12 @@ import styles from "./styles.module.scss";
 const Skills = () => {
   const skills = useSelector((state) => state.skills.list);
   const theme = useSelector((state) => state.theme);
-  const dispatch = useDispatch();
   const isLoading = useSelector((state) => state.skills.isFetching);
+  const dispatch = useDispatch();
+
 
   const { fetchSkills } = skillsOperation;
   const [inputValue, setInputValue] = useState("");
-
   const filteredSkills = skills.filter((skill) => {
     if (inputValue === "") {
       return skill;
@@ -24,6 +24,7 @@ const Skills = () => {
     }
   });
 
+  
   useEffect(() => {
     dispatch(fetchSkills());
     setInputValue(localStorage.getItem("inputSkillsValue"));

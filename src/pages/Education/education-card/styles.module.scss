@@ -78,6 +78,7 @@
             }
         }
     }
+  
 }
 .condition-icon-wrap {
     background-color: #fff;
@@ -93,4 +94,19 @@
 .condition-icon {
     display: block;
    z-index: 1;
+}
+
+@media screen and (max-width: 951px) {
+    .condition-icon-wrap {
+        display: none;
+    }
+    .card {
+        max-width: 100%;
+        width: 100%;
+        margin-top: 20px;
+        .body {
+            max-width: 850px;
+            width: 100%;
+        }
+    }
 }
