@@ -1,5 +1,4 @@
 import clsx from "clsx";
-import React from "react";
 import { useSelector } from "react-redux";
 import SkillsSlider from "./skills-slider";
 import { ReactComponent as GithubIcon } from "./../../assets/icons/github-logo.svg";

@@ -1,8 +1,6 @@
 @import "./../../assets/styles/light-theme.scss";
 
 .header {
-  position: sticky;
-  z-index: 10;
   &__navbar {
     padding: 0 12px;
     margin: 0 auto;
@@ -78,6 +76,12 @@
     justify-content: center;
     align-items: center;
     height: 100%;
+    .search-icon-wrap {
+      height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
     &:hover {
       background: $border;
     }
@@ -88,7 +92,7 @@
     }
   }
   .light-icon-wrap {
-    height: 100%;
+    height: 40px;
     display: flex;
     align-items: center;
     cursor: pointer;

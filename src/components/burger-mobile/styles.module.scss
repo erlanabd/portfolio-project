@@ -1,0 +1,15 @@
+.burger-mobile-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 10px;
+  .burger-mobile-icon {
+    width: 20px;
+    height: 20px;
+    stroke: black;
+  }
+  .burger-mobile-icon-light {
+    @extend .burger-mobile-icon;
+    stroke: white;
+  }
+}

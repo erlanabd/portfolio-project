@@ -16,7 +16,7 @@ const Search = () => {
     if (inputValue === "") {
       return null;
     } else {
-      return skill.label.toLowerCase().includes(inputValue.toLocaleLowerCase());
+      return skill.label.toLowerCase().includes(inputValue);
     }
   });
 
@@ -31,7 +31,7 @@ const Search = () => {
     } else {
       return project.name
         .toLowerCase()
-        .includes(inputValue.toLocaleLowerCase());
+        .includes(inputValue);
     }
   });
 
@@ -41,7 +41,7 @@ const Search = () => {
     } else {
       return experience.title
         .toLowerCase()
-        .includes(inputValue.toLocaleLowerCase());
+        .includes(inputValue);
     }
   });
 

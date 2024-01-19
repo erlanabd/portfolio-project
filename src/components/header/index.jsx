@@ -1,5 +1,5 @@
 import { clsx } from "clsx";
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { changeTheme } from "../../redux/theme/actions";
@@ -13,8 +13,9 @@ import { ReactComponent as SearchIcon } from "./../../assets/icons/search-icon.s
 import { ReactComponent as SunIcon } from "./../../assets/icons/sun-icon.svg";
 import { ReactComponent as MoonIcon } from "./../../assets/icons/moon-icon.svg";
 import styles from "./styles.module.scss";
+import BurgerMobile from "../burger-mobile";
 
-const Header = () => {
+const Header = ({ isActiveBurgerMenu, setIsActiveBurgerMenu }) => {
   const theme = useSelector((state) => state.theme);
   const dispatch = useDispatch();
 
@@ -122,6 +123,7 @@ const Header = () => {
                 )}
                 {theme === "dark" && <MoonIcon className={themeIconClasses} />}
               </div>
+              <BurgerMobile theme={theme} />
             </div>
           </div>
         </ul>
