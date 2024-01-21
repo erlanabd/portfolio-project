@@ -1,32 +1,111 @@
-import React, { useContext } from "react";
-import styles from "./styles.module.scss";
+import React from "react";
+import { ReactComponent as SkillsIcon } from "./../../assets/icons/skills-icon.svg";
+import { ReactComponent as ProjectsIcon } from "./../../assets/icons/projects-icon.svg";
+import { ReactComponent as ExperiencesIcon } from "./../../assets/icons/experience-icon.svg";
+import { ReactComponent as EducationIcon } from "./../../assets/icons/education-icon.svg";
+import { ReactComponent as ResumeIcon } from "./../../assets/icons/resume-icon.svg";
+import { ReactComponent as SearchIcon } from "./../../assets/icons/search-icon.svg";
+import { ReactComponent as SunIcon } from "./../../assets/icons/sun-icon.svg";
+import { ReactComponent as MoonIcon } from "./../../assets/icons/moon-icon.svg";
+
 import { Link } from "react-router-dom";
+import styles from "./styles.module.scss";
 import clsx from "clsx";
-import { BurgerContext } from "../../providers/burger-context";
 
 const BurgerMenu = (props) => {
-  const { items } = props;
-  const { isActiveBurgerMenu } = useContext(BurgerContext);
-
-  const burgerMenuClasses = clsx(styles["burger-menu"], {
-    [styles["burger-menu-active"]]: isActiveBurgerMenu === true,
+  const { theme, isActiveBurgerMenu } = props;
+  const navMenuClasses = clsx(styles["nav-menu"], {
+    [styles["nav-menu-active"]]: isActiveBurgerMenu,
   });
-
   return (
-    <div className={burgerMenuClasses}>
-      <ul className={styles["burger-menu__list"]}>
-        <li className={styles["burger-menu__item"]}>
-          {items.map((item) => {
-            return (
-              <Link key={item.id} className={styles["link"]} to={item.href}>
-                <i className={clsx(styles["icon"], styles[`${item.icon}`])}></i>
-                <span>{item.title}</span>
-              </Link>
-            );
-          })}
-        </li>
+    <nav className={navMenuClasses}>
+      <ul className={styles["nav-menu__list"]}>
+        <div className={styles["pages"]}>
+          <li className={styles["nav-menu__item"]}>
+            <Link className={styles["nav-menu__link"]} to={"/skills"}>
+              <SkillsIcon
+                className={styles["icon"]}
+                width={"20px"}
+                height={"20px"}
+              />
+              <span className={styles["nav-menu__text"]}>Skills</span>
+            </Link>
+          </li>
+          <li className={styles["nav-menu__item"]}>
+            <Link className={styles["nav-menu__link"]} to={"/projects"}>
+              <ProjectsIcon
+                className={styles["icon"]}
+                width={"20px"}
+                height={"20px"}
+              />
+              <span className={styles["nav-menu__text"]}>Projects</span>
+            </Link>
+          </li>
+          <li className={styles["nav-menu__item"]}>
+            <Link className={styles["nav-menu__link"]} to={"/experiences"}>
+              <ExperiencesIcon
+                className={styles["icon"]}
+                width={"20px"}
+                height={"20px"}
+              />
+              <span className={styles["nav-menu__text"]}>Experiences</span>
+            </Link>
+          </li>
+          <li className={styles["nav-menu__item"]}>
+            <Link className={styles["nav-menu__link"]} to={"/education"}>
+              <EducationIcon
+                className={styles["icon"]}
+                width={"20px"}
+                height={"20px"}
+              />
+              <span className={styles["nav-menu__text"]}>Education</span>
+            </Link>
+          </li>
+          <li className={styles["nav-menu__item"]}>
+            <Link className={styles["nav-menu__link"]} to={"/resume"}>
+              <ResumeIcon
+                className={styles["icon"]}
+                width={"20px"}
+                height={"20px"}
+              />
+              <span className={styles["nav-menu__text"]}>Resume</span>
+            </Link>
+          </li>
+        </div>
+        <div className={styles["icons"]}>
+          <li className={styles["nav-menu__item"]}>
+            <Link className={styles["nav-menu__link"]} to={"/search"}>
+              <SearchIcon
+                className={styles["icon"]}
+                width={"20px"}
+                height={"20px"}
+              />
+              <span className={styles["nav-menu__text"]}>Search</span>
+            </Link>
+          </li>
+          <li className={styles["nav-menu__item"]}>
+            {(theme === "light" || theme === false) && (
+              <SunIcon
+                className={styles["icon"]}
+                width={"20px"}
+                height={"20px"}
+              />
+            )}
+            {theme === "dark" && (
+              <MoonIcon
+                className={styles["icon"]}
+                width={"20px"}
+                height={"20px"}
+              />
+            )}
+            <span className={styles["theme-text"]}>
+              {theme === "light" ? "Light" : "Dark"}
+            </span>
+            <span className={styles["nav-menu__text"]}>Theme</span>
+          </li>
+        </div>
       </ul>
-    </div>
+    </nav>
   );
 };
 

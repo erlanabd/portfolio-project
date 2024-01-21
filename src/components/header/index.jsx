@@ -13,11 +13,14 @@ import { ReactComponent as SearchIcon } from "./../../assets/icons/search-icon.s
 import { ReactComponent as SunIcon } from "./../../assets/icons/sun-icon.svg";
 import { ReactComponent as MoonIcon } from "./../../assets/icons/moon-icon.svg";
 import styles from "./styles.module.scss";
-import BurgerMobile from "../burger-mobile";
+import BurgerMenu from "../burger-menu";
+import BurgerMobile from "../burger-icon";
 
-const Header = ({ isActiveBurgerMenu, setIsActiveBurgerMenu }) => {
+const Header = () => {
   const theme = useSelector((state) => state.theme);
   const dispatch = useDispatch();
+  const [isActiveBurgerMenu, setIsActiveBurgerMenu] = useState(false);
+  console.log(isActiveBurgerMenu);
 
   const themeIconClasses = clsx(styles["header__icons"], {
     [styles["light-icon"]]: theme === "light" || theme === false,
@@ -26,6 +29,7 @@ const Header = ({ isActiveBurgerMenu, setIsActiveBurgerMenu }) => {
 
   const headerItemDarkHoverClasses = clsx(styles["header__item"], {
     [styles["header__item-dark"]]: theme === "dark",
+    [styles["header__item-hidden"]]: isActiveBurgerMenu,
   });
 
   const handleChangeTheme = () => {
@@ -39,6 +43,10 @@ const Header = ({ isActiveBurgerMenu, setIsActiveBurgerMenu }) => {
       localStorage.setItem("theme", "dark");
       body.style.background = "#000";
     }
+  };
+
+  const handleShowBurgerMenu = () => {
+    setIsActiveBurgerMenu(!isActiveBurgerMenu);
   };
 
   // Надо сделать нормально
@@ -69,6 +77,7 @@ const Header = ({ isActiveBurgerMenu, setIsActiveBurgerMenu }) => {
                 </li>
               </Link>
             </div>
+            <div className={styles["mobile-logo-text"]}>Name LASTNAME</div>
             <div className={styles["header__list-box__item"]}>
               <Link className={styles["link"]} to={"/skills"}>
                 <li className={headerItemDarkHoverClasses}>
@@ -123,11 +132,16 @@ const Header = ({ isActiveBurgerMenu, setIsActiveBurgerMenu }) => {
                 )}
                 {theme === "dark" && <MoonIcon className={themeIconClasses} />}
               </div>
-              <BurgerMobile theme={theme} />
             </div>
+            <BurgerMobile
+              isActiveBurgerMenu={isActiveBurgerMenu}
+              onClick={handleShowBurgerMenu}
+              theme={theme}
+            />
           </div>
         </ul>
       </nav>
+      <BurgerMenu theme={theme} isActiveBurgerMenu={isActiveBurgerMenu} />
     </header>
   );
 };

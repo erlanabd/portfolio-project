@@ -9,6 +9,7 @@ import { ReactComponent as MailIcon } from "./../../assets/icons/email-logo.svg"
 import { ReactComponent as YoutubeIcon } from "./../../assets/icons/youtube-logo.svg";
 import { ReactComponent as FacebookIcon } from "./../../assets/icons/facebook-logo.svg";
 import styles from "./styles.module.scss";
+import BurgerMenu from "../../components/burger-menu";
 
 const Home = () => {
   const theme = useSelector((state) => state.theme);
