@@ -2,6 +2,7 @@
   .chips-wrap {
     margin: 20px 0;
     display: flex;
+    flex-wrap: wrap;
     align-items: center;
     .chip {
       margin: 2.5px;
@@ -10,15 +11,20 @@
   .cards-wrap {
     display: flex;
     gap: 20px;
-    .card {
-    //   min-width: 455px;
-    //   width: 100%;
-    }
   }
   @media screen and (max-width: 951px) {
     .card {
-        max-width: 455px;
-        width: 100%;
+      max-width: 455px;
+      width: 100%;
+    }
+  }
+  @media screen and (max-width: 768px) {
+    .cards-wrap {
+      flex-wrap: wrap;
+    }
+    .card {
+      max-width: 100%;
+      width: 100%;
     }
   }
 }

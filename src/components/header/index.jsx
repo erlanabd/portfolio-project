@@ -141,7 +141,11 @@ const Header = () => {
           </div>
         </ul>
       </nav>
-      <BurgerMenu theme={theme} isActiveBurgerMenu={isActiveBurgerMenu} />
+      <BurgerMenu
+        setIsActiveBurgerMenu={setIsActiveBurgerMenu}
+        theme={theme}
+        isActiveBurgerMenu={isActiveBurgerMenu}
+      />
     </header>
   );
 };

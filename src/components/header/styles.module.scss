@@ -137,6 +137,10 @@
 
 @media screen and (max-width: 768px) {
   .header {
+    padding: 0 10px;
+    &__navbar {
+      padding: 0;
+    }
     .header__list-box {
       .header__list-box__item {
         display: none;

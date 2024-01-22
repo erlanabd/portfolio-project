@@ -11,17 +11,42 @@ import { ReactComponent as MoonIcon } from "./../../assets/icons/moon-icon.svg";
 import { Link } from "react-router-dom";
 import styles from "./styles.module.scss";
 import clsx from "clsx";
+import { useDispatch } from "react-redux";
+import { changeTheme } from "../../redux/theme/actions";
 
 const BurgerMenu = (props) => {
-  const { theme, isActiveBurgerMenu } = props;
+  const { theme, isActiveBurgerMenu, setIsActiveBurgerMenu } = props;
+  const dispatch = useDispatch();
   const navMenuClasses = clsx(styles["nav-menu"], {
     [styles["nav-menu-active"]]: isActiveBurgerMenu,
+    [styles["nav-menu-light"]]: theme === "light",
   });
+
+  const handleChangeTheme = () => {
+    const body = document.querySelector("body");
+    if (theme === "dark") {
+      dispatch(changeTheme("light"));
+      body.style.background = "#fff";
+      localStorage.setItem("theme", "light");
+    } else {
+      dispatch(changeTheme("dark"));
+      localStorage.setItem("theme", "dark");
+      body.style.background = "#000";
+    }
+  };
+
+  const handleQuitBurgerMenu = () => {
+    setIsActiveBurgerMenu(!isActiveBurgerMenu);
+  };
+
   return (
     <nav className={navMenuClasses}>
       <ul className={styles["nav-menu__list"]}>
         <div className={styles["pages"]}>
-          <li className={styles["nav-menu__item"]}>
+          <li
+            onClick={handleQuitBurgerMenu}
+            className={styles["nav-menu__item"]}
+          >
             <Link className={styles["nav-menu__link"]} to={"/skills"}>
               <SkillsIcon
                 className={styles["icon"]}
@@ -31,7 +56,10 @@ const BurgerMenu = (props) => {
               <span className={styles["nav-menu__text"]}>Skills</span>
             </Link>
           </li>
-          <li className={styles["nav-menu__item"]}>
+          <li
+            onClick={handleQuitBurgerMenu}
+            className={styles["nav-menu__item"]}
+          >
             <Link className={styles["nav-menu__link"]} to={"/projects"}>
               <ProjectsIcon
                 className={styles["icon"]}
@@ -41,7 +69,10 @@ const BurgerMenu = (props) => {
               <span className={styles["nav-menu__text"]}>Projects</span>
             </Link>
           </li>
-          <li className={styles["nav-menu__item"]}>
+          <li
+            onClick={handleQuitBurgerMenu}
+            className={styles["nav-menu__item"]}
+          >
             <Link className={styles["nav-menu__link"]} to={"/experiences"}>
               <ExperiencesIcon
                 className={styles["icon"]}
@@ -51,7 +82,10 @@ const BurgerMenu = (props) => {
               <span className={styles["nav-menu__text"]}>Experiences</span>
             </Link>
           </li>
-          <li className={styles["nav-menu__item"]}>
+          <li
+            onClick={handleQuitBurgerMenu}
+            className={styles["nav-menu__item"]}
+          >
             <Link className={styles["nav-menu__link"]} to={"/education"}>
               <EducationIcon
                 className={styles["icon"]}
@@ -61,7 +95,10 @@ const BurgerMenu = (props) => {
               <span className={styles["nav-menu__text"]}>Education</span>
             </Link>
           </li>
-          <li className={styles["nav-menu__item"]}>
+          <li
+            onClick={handleQuitBurgerMenu}
+            className={styles["nav-menu__item"]}
+          >
             <Link className={styles["nav-menu__link"]} to={"/resume"}>
               <ResumeIcon
                 className={styles["icon"]}
@@ -73,7 +110,10 @@ const BurgerMenu = (props) => {
           </li>
         </div>
         <div className={styles["icons"]}>
-          <li className={styles["nav-menu__item"]}>
+          <li
+            onClick={handleQuitBurgerMenu}
+            className={styles["nav-menu__item"]}
+          >
             <Link className={styles["nav-menu__link"]} to={"/search"}>
               <SearchIcon
                 className={styles["icon"]}
@@ -83,7 +123,7 @@ const BurgerMenu = (props) => {
               <span className={styles["nav-menu__text"]}>Search</span>
             </Link>
           </li>
-          <li className={styles["nav-menu__item"]}>
+          <li onClick={handleChangeTheme} className={styles["nav-menu__item"]}>
             {(theme === "light" || theme === false) && (
               <SunIcon
                 className={styles["icon"]}

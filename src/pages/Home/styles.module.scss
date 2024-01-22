@@ -1,92 +1,117 @@
-@import './../../assets/styles/light-theme.scss';
+@import "./../../assets/styles/light-theme.scss";
 
 .home-page-wrap {
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
-    padding-top: 80px;
-    .info-wrap {
-        margin: 130px 0;
-
-        .title {
-            margin: 5px 0;
-            display: block;
-            font-size: 64px;
-            text-align: left;
-            font-weight: 900;
-            letter-spacing: 4px;
-            background: linear-gradient($dark-0, $dark-4); 
-            background-attachment: scroll;
-            background-clip: text; 
-            -webkit-background-clip: text; 
-            -webkit-text-fill-color: transparent;
-            &.title-dark {
-                background: linear-gradient($light-0, $light-4); 
-                background-clip: text; 
-                -webkit-background-clip: text; 
-                -webkit-text-fill-color: transparent;
-            }
-        }
-        .main-info {
-            font-size: 19px;
-            color: $tertiary-text;
-            font-weight: 200;
-            letter-spacing: 1px;
-            text-align: left;
-            max-width: 800px;
-            width: 100%;
-            &.main-info-dark {
-                color: $light-2;
-            }
-        }
-        .icons-wrap {
-            display: flex;
-            align-self: center;
-            justify-content: flex-start;
-            padding: 15px 0;
-            .icon {
-                display: block; 
-                width: 20px;
-                height: 20px;
-                margin-right: 8px;
-                 &.linkedin-icon{
-                    background: url('./../../assets/icons/linkedin-logo.svg') center center / contain no-repeat;  
-                }
-                &.twitter-icon{
-                    background: url('./../../assets/icons/twitter-logo.svg') center center / contain no-repeat;
-                }
-                &.stackoverflow-icon {
-                    background: url('./../../assets/icons/stackoverflow-logo.svg') center center / contain no-repeat;
-                }
-                &.mail-icon{
-                    background: url('./../../assets/icons/email-logo.svg') center center / contain no-repeat;
-                }
-                &.youtube-icon{
-                    background: url('./../../assets/icons/youtube-logo.svg') center center / contain no-repeat;
-                }
-                &.facebook-icon{
-                    background: url('./../../assets/icons/facebook-logo.svg') center center / contain no-repeat;
-                }
-            }
-        }
-      
-    }
-    
-   
-    .slider {
-    }
-
-    @media screen and (max-width: 951px) {
-        .info-wrap {
-            margin: 0;
-            .title {
-                font-size: 56px;
-                &.title-dark {
-                    font-size: 56px;
-                }
-               }
-
-        }
-     
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  padding-top: 80px;
+  .info-wrap {
+    margin: 130px 0;
+    .title {
+      margin: 5px 0;
+      display: block;
+      font-size: 64px;
+      text-align: left;
+      font-weight: 900;
+      letter-spacing: 4px;
+      background: linear-gradient($dark-0, $dark-4);
+      background-attachment: scroll;
+      background-clip: text;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      &.title-dark {
+        background: linear-gradient($light-0, $light-4);
+        background-clip: text;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
       }
+    }
+    .main-info {
+      font-size: 19px;
+      color: $tertiary-text;
+      font-weight: 200;
+      letter-spacing: 1px;
+      text-align: left;
+      max-width: 800px;
+      width: 100%;
+      &.main-info-dark {
+        color: $light-2;
+      }
+    }
+    .icons-wrap {
+      display: flex;
+      align-self: center;
+      justify-content: flex-start;
+      padding: 15px 0;
+      .icon {
+        display: block;
+        width: 20px;
+        height: 20px;
+        margin-right: 8px;
+        &.linkedin-icon {
+          background: url("./../../assets/icons/linkedin-logo.svg") center
+            center / contain no-repeat;
+        }
+        &.twitter-icon {
+          background: url("./../../assets/icons/twitter-logo.svg") center center /
+            contain no-repeat;
+        }
+        &.stackoverflow-icon {
+          background: url("./../../assets/icons/stackoverflow-logo.svg") center
+            center / contain no-repeat;
+        }
+        &.mail-icon {
+          background: url("./../../assets/icons/email-logo.svg") center center /
+            contain no-repeat;
+        }
+        &.youtube-icon {
+          background: url("./../../assets/icons/youtube-logo.svg") center center /
+            contain no-repeat;
+        }
+        &.facebook-icon {
+          background: url("./../../assets/icons/facebook-logo.svg") center
+            center / contain no-repeat;
+        }
+      }
+    }
+  }
+
+  @media screen and (max-width: 951px) {
+    .info-wrap {
+      margin: 0;
+      .title {
+        font-size: 56px;
+        &.title-dark {
+          font-size: 56px;
+        }
+      }
+    }
+  }
+}
+@media screen and (max-width: 768px) {
+  .home-page-wrap {
+    flex-direction: column;
+    align-items: center;
+    padding: 0;
+    .info-wrap {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 30px;
+      .title {
+        text-align: center;
+        font-size: 48px;
+        &.title-dark {
+          font-size: 48px;
+        }
+      }
+      .main-info {
+        text-align: center;
+      }
+    }
+  }
+  .slider {
+    flex: 1;
+  }
 }

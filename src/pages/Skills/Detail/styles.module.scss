@@ -13,8 +13,10 @@
     z-index: -1;
   }
   .description {
+    font-family: "Space Mono", monospace;
     letter-spacing: 1px;
     line-height: 28px;
+    font-size: 14px;
     padding: 25px 0;
     border-bottom: 1px solid $border;
     &.description-dark {

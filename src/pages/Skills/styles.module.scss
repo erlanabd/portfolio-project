@@ -1,18 +1,22 @@
 .skills-page {
+  .skills-list {
+    margin-top: 70px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 20px;
+    justify-content: center;
+  }
+
+  @media screen and (max-width: 951px) {
     .skills-list {
-        margin-top: 70px;
-        display: grid;
-        grid-template-columns: 1fr 1fr 1fr;
-        gap: 20px;
-        justify-content: center;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
     }
-
-    @media screen and (max-width: 951px) {
-       .skills-list {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 10px;
-       }
-      }
+  }
+  @media screen and (max-width: 768px) {
+    .skills-list {
+      grid-template-columns: 1fr;
+    }
+  }
 }
-
