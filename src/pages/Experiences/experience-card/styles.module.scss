@@ -106,8 +106,14 @@
   }
   .card {
     .body {
-        max-width: 751px;
-        width: 100%;
-      }
+      max-width: 751px;
+      width: 100%;
+    }
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .card {
+    display: block;
   }
 }

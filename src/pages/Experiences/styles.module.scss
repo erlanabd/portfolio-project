@@ -30,15 +30,18 @@
   }
   @media screen and (max-width: 951px) {
     .exp-cards-wrap {
-        display: grid;
-        grid-template-columns: 1fr;
+      display: grid;
+      grid-template-columns: 1fr;
     }
     .vertical-line {
       display: none;
     }
     .card-row {
-        flex-direction: row;
+      flex-direction: row;
     }
+  }
+  @media screen and (max-width: 768px) {
+  
   }
 }
 
@@ -50,5 +53,3 @@
 .empty-list {
   margin-top: 150px;
 }
-
-

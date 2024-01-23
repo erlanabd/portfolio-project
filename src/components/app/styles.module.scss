@@ -9,6 +9,10 @@
 }
 
 .header-dark {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background-color: #fff;
   border-bottom: 1px solid $dark-1;
   background-color: #000;
 }
@@ -18,6 +22,6 @@
 }
 
 .page-indent {
-  padding: 48px 22px;
   position: relative;
+  padding: 48px 22px;
 }
