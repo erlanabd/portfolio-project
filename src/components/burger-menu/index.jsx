@@ -16,6 +16,7 @@ import { changeTheme } from "../../redux/theme/actions";
 
 const BurgerMenu = (props) => {
   const { theme, isActiveBurgerMenu, setIsActiveBurgerMenu } = props;
+  
   const dispatch = useDispatch();
   const navMenuClasses = clsx(styles["nav-menu"], {
     [styles["nav-menu-active"]]: isActiveBurgerMenu,

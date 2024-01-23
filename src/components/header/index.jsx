@@ -1,5 +1,5 @@
 import { clsx } from "clsx";
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { changeTheme } from "../../redux/theme/actions";
@@ -12,15 +12,13 @@ import { ReactComponent as ResumeIcon } from "./../../assets/icons/resume-icon.s
 import { ReactComponent as SearchIcon } from "./../../assets/icons/search-icon.svg";
 import { ReactComponent as SunIcon } from "./../../assets/icons/sun-icon.svg";
 import { ReactComponent as MoonIcon } from "./../../assets/icons/moon-icon.svg";
-import styles from "./styles.module.scss";
-import BurgerMenu from "../burger-menu";
 import BurgerMobile from "../burger-icon";
+import styles from "./styles.module.scss";
 
 const Header = () => {
   const theme = useSelector((state) => state.theme);
   const dispatch = useDispatch();
   const [isActiveBurgerMenu, setIsActiveBurgerMenu] = useState(false);
-  console.log(isActiveBurgerMenu);
 
   const themeIconClasses = clsx(styles["header__icons"], {
     [styles["light-icon"]]: theme === "light" || theme === false,
@@ -38,6 +36,8 @@ const Header = () => {
       dispatch(changeTheme("light"));
       body.style.background = "#fff";
       localStorage.setItem("theme", "light");
+    } else if (isActiveBurgerMenu) {
+      body.style.overflow = "hidden";
     } else {
       dispatch(changeTheme("dark"));
       localStorage.setItem("theme", "dark");
@@ -135,17 +135,13 @@ const Header = () => {
             </div>
             <BurgerMobile
               isActiveBurgerMenu={isActiveBurgerMenu}
+              setIsActiveBurgerMenu={setIsActiveBurgerMenu}
               onClick={handleShowBurgerMenu}
               theme={theme}
             />
           </div>
         </ul>
       </nav>
-      <BurgerMenu
-        setIsActiveBurgerMenu={setIsActiveBurgerMenu}
-        theme={theme}
-        isActiveBurgerMenu={isActiveBurgerMenu}
-      />
     </header>
   );
 };

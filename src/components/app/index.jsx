@@ -23,38 +23,40 @@ function App() {
   });
 
   return (
-    <div className={mainLayoutClasses}>
-      <div
-        className={theme === "dark" ? styles["header-dark"] : styles["header"]}
-      >
-        <div className={common.container}>
-          <Header />
+      <div className={mainLayoutClasses}>
+        <div
+          className={
+            theme === "dark" ? styles["header-dark"] : styles["header"]
+          }
+        >
+          <div className={common.container}>
+            <Header />
+          </div>
+        </div>
+        <div className={common["container"]}>
+          <div className={styles["page-indent"]}>
+            <Routes>
+              <Route path="*" element={<Navigate to="/" replace />} />
+              <Route path={"/"} element={<Home />} />
+              <Route path={"/skills"}>
+                <Route index element={<Skills />} />
+                <Route path={":slug"} element={<DetailSkill />} />
+              </Route>
+              <Route path={"/projects"}>
+                <Route index element={<Projects />} />
+                <Route path={":id"} element={<DetailProject />} />
+              </Route>
+              <Route path={"/experiences"}>
+                <Route index element={<Experiences />} />
+                <Route path={":slug"} element={<DetailExperience />} />
+              </Route>
+              <Route path={"/search"} element={<Search />} />
+              <Route path={"/resume"} element={<Resume />} />
+              <Route path={"/education"} element={<Education />} />
+            </Routes>
+          </div>
         </div>
       </div>
-      <div className={common["container"]}>
-        <div className={styles["page-indent"]}>
-          <Routes>
-            <Route path="*" element={<Navigate to="/" replace />} />
-            <Route path={"/"} element={<Home />} />
-            <Route path={"/skills"}>
-              <Route index element={<Skills />} />
-              <Route path={":slug"} element={<DetailSkill />} />
-            </Route>
-            <Route path={"/projects"}>
-              <Route index element={<Projects />} />
-              <Route path={":id"} element={<DetailProject />} />
-            </Route>
-            <Route path={"/experiences"}>
-              <Route index element={<Experiences />} />
-              <Route path={":slug"} element={<DetailExperience />} />
-            </Route>
-            <Route path={"/search"} element={<Search />} />
-            <Route path={"/resume"} element={<Resume />} />
-            <Route path={"/education"} element={<Education />} />
-          </Routes>
-        </div>
-      </div>
-    </div>
   );
 }
 
