@@ -117,3 +117,14 @@
     display: block;
   }
 }
+
+@media screen and (max-width: 640px) {
+  .card-box {
+    .card {
+      .body {
+        margin-top: 25px;
+        margin-left: 0;
+      }
+    }
+  }
+}

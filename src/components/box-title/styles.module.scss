@@ -1,10 +1,12 @@
-@import './../../assets/styles/light-theme.scss';
-@import './../../assets/styles/colors.scss';
+@import "./../../assets/styles/light-theme.scss";
+@import "./../../assets/styles/colors.scss";
 
 .title-wrap {
-    border-bottom: 1px solid $border;
-    position: relative;
-    &.title-wrap-dark {
-        border-bottom: 1px solid $dark-2;
-    }
+  border-bottom: 1px solid $border;
+  position: relative;
+  &.title-wrap-dark {
+    border-bottom: 1px solid $dark-2;
+  }
 }
+
+

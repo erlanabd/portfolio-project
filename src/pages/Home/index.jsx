@@ -9,7 +9,6 @@ import { ReactComponent as MailIcon } from "./../../assets/icons/email-logo.svg"
 import { ReactComponent as YoutubeIcon } from "./../../assets/icons/youtube-logo.svg";
 import { ReactComponent as FacebookIcon } from "./../../assets/icons/facebook-logo.svg";
 import styles from "./styles.module.scss";
-import BurgerMenu from "../../components/burger-menu";
 
 const Home = () => {
   const theme = useSelector((state) => state.theme);
@@ -32,43 +31,43 @@ const Home = () => {
           laudantium quaerat iure ipsum!
         </div>
         <div className={styles["icons-wrap"]}>
-          <a target="_blank" href="https://github.com">
+          <a target="_blank" rel="noreferrer" href="https://github.com">
             <GithubIcon
               fill={theme === "dark" ? "#C1C1C1" : "#3E3E3E"}
               className={styles["icon"]}
             />
           </a>
-          <a target="_blank" href="https://linkedin.com">
+          <a target="_blank" rel="noreferrer" href="https://linkedin.com">
             <LinkedinIcon
               fill={theme === "dark" ? "#C1C1C1" : "#3E3E3E"}
               className={styles["icon"]}
             />
           </a>
-          <a target="_blank" href="https://twitter.com">
+          <a target="_blank" rel="noreferrer" href="https://twitter.com">
             <TwitterIcon
               fill={theme === "dark" ? "#C1C1C1" : "#3E3E3E"}
               className={styles["icon"]}
             />
           </a>
-          <a target="_blank" href="https://stackoverflow.com">
+          <a target="_blank" rel="noreferrer" href="https://stackoverflow.com">
             <StackoverflowIcon
               fill={theme === "dark" ? "#C1C1C1" : "#3E3E3E"}
               className={styles["icon"]}
             />
           </a>
-          <a target="_blank" href="https://mail.ru">
+          <a target="_blank" rel="noreferrer" href="https://mail.ru">
             <MailIcon
               fill={theme === "dark" ? "#C1C1C1" : "#3E3E3E"}
               className={styles["icon"]}
             />
           </a>
-          <a target="_blank" href="https://youtube.com">
+          <a target="_blank" rel="noreferrer" href="https://youtube.com">
             <YoutubeIcon
               fill={theme === "dark" ? "#C1C1C1" : "#3E3E3E"}
               className={styles["icon"]}
             />
           </a>
-          <a target="_blank" href="https://facebook.com">
+          <a target="_blank" rel="noreferrer" href="https://facebook.com">
             <FacebookIcon
               fill={theme === "dark" ? "#C1C1C1" : "#3E3E3E"}
               className={styles["icon"]}

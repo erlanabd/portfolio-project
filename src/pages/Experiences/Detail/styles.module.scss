@@ -118,3 +118,15 @@
     }
   }
 }
+
+@media screen and (max-width: 680px) {
+  .detail-wrap {
+    .title-box {
+      .title-wrap {
+        .title {
+          font-size: 36px;
+        }
+      }
+    }
+  }
+}

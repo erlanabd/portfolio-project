@@ -115,3 +115,16 @@
     flex: 1;
   }
 }
+
+@media screen and (max-width: 640px) {
+  .home-page-wrap {
+    .info-wrap {
+      .title {
+        font-size: 40px;
+        &.title-dark {
+          font-size: 40px;
+        }
+      }
+    }
+  }
+}

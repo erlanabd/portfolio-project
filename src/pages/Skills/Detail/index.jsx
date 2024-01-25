@@ -28,7 +28,7 @@ const DetailSkill = () => {
 
   return (
     <section key={newData.id} className={styles["detail-page-wrap"]}>
-      <BoxTitle>
+      <BoxTitle className={styles["promo-block"]}>
         <MainTitle className={styles["title"]}>{newData.label}</MainTitle>
         <BoxImage image={newData.image} label="skill-logo" />
       </BoxTitle>
