@@ -1,55 +1,62 @@
-@import './../../assets/styles/light-theme.scss';
-@import './../../assets/styles/colors.scss';
-
+@import "./../../assets/styles/light-theme.scss";
+@import "./../../assets/styles/colors.scss";
 
 .chip-wrap {
-    &.border-dark {
-        border: 1px solid $dark-2;
-        &:hover {
-            background: $dark-1;
-        }
-    }
-    display: block;
-    width: max-content;
-    border: 1px solid $border;
-    color: $tertiary-text;
-    font-size: 13px;
-    border-radius: 20px;
-    padding: 5px 15px;
-    cursor: pointer;
-    transition-duration: .15s;
-    user-select: none;
-    .label {
-        display: flex;
-        align-items: center;
-        font-size: 13px;
-        font-weight: 300;
-        letter-spacing: 0.72px;
-      &.label-dark {
-          color: $light-0;
-      }
-    }
-    .icon-wrap {
-        width: 15px;
-        height: 15px;
-        margin-right: 8px;
-        img {
-            display: block;
-            width: 100%;
-            height: 100%;
-            object-fit: contain;
-        }
-    }
-    &.active {
-        background-color: $accent;
-    }
+  &.border-dark {
+    border: 1px solid $dark-2;
     &:hover {
-        background-color: $main-hover;
+      background: $dark-1;
     }
-    &.chip-wrap-mb {
-        margin-bottom: 10px;
+  }
+  display: block;
+  width: max-content;
+  border: 1px solid $border;
+  color: $tertiary-text;
+  font-size: 13px;
+  border-radius: 20px;
+  padding: 5px 15px;
+  cursor: pointer;
+  transition-duration: 0.15s;
+  user-select: none;
+  .label {
+    display: flex;
+    align-items: center;
+    font-size: 13px;
+    font-weight: 300;
+    letter-spacing: 0.72px;
+    &.label-dark {
+      color: $light-0;
     }
-    &.label-mt {
-        margin-top: 10px;
+  }
+  .icon-wrap {
+    width: 15px;
+    height: 15px;
+    margin-right: 8px;
+    img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
     }
+  }
+  &.active {
+    background-color: $accent;
+  }
+  &:hover {
+    background-color: $main-hover;
+  }
+  &.chip-wrap-mb {
+    margin-bottom: 10px;
+  }
+  &.label-mt {
+    margin-top: 10px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .chip-wrap {
+    .label {
+      font-size: 12px;
+    }
+  }
 }

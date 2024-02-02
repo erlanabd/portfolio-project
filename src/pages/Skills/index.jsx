@@ -13,7 +13,6 @@ const Skills = () => {
   const isLoading = useSelector((state) => state.skills.isFetching);
   const dispatch = useDispatch();
 
-
   const { fetchSkills } = skillsOperation;
   const [inputValue, setInputValue] = useState("");
   const filteredSkills = skills.filter((skill) => {
@@ -24,10 +23,10 @@ const Skills = () => {
     }
   });
 
-  
   useEffect(() => {
     dispatch(fetchSkills());
     setInputValue(localStorage.getItem("inputSkillsValue"));
+    filteredSkills.map(renderFilteredSkills);
   }, []);
 
   const inputHandler = (value) => {

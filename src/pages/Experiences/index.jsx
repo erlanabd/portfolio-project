@@ -31,6 +31,7 @@ const Experiences = () => {
   useEffect(() => {
     dispatch(fetchExperiences());
     setInputValue(localStorage.getItem("inputExperiencesValue"));
+    filteredExperiences.map(renderFilteredExperienceCards);
   }, []);
 
   const inputHandler = (value) => {

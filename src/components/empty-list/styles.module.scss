@@ -1,9 +1,9 @@
-@import './../../assets/styles/light-theme.scss';
+@import "./../../assets/styles/light-theme.scss";
 
 .empty-skills-wrap {
-    padding: 150px 20px 20px;
-    position: relative;
-   .empty-skills {
+  padding: 150px 20px 20px;
+  position: relative;
+  .empty-skills {
     position: absolute;
     display: flex;
     align-items: center;
@@ -13,21 +13,19 @@
     left: 50%;
     transform: translate(-50%, -50%);
     .icon {
-        width: 56px;
-        height: 56px;  
-        margin-bottom: 5px;
-        &.dark-icon {
-
-        }
+      width: 56px;
+      height: 56px;
+      margin-bottom: 5px;
     }
     .text {
-        letter-spacing: 1px;
-        font-weight: 300;
-        margin-top: 5px;
-        color: #3E3E3E;
-        &.dark-text {
-            color: $light-3;
-        }
+      letter-spacing: 1px;
+      font-weight: 300;
+      margin-top: 5px;
+      color: #3e3e3e;
+      white-space: nowrap;
+      &.dark-text {
+        color: $light-3;
+      }
     }
-   }
+  }
 }

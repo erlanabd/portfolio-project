@@ -24,13 +24,11 @@ const Projects = () => {
   });
 
   useEffect(() => {
+    filteredProjects.map(renderFilteredProjectCards);
     dispatch(fetchProjects());
     setInputValue(localStorage.getItem("inputProjectsValue"));
   }, []);
 
-  useEffect(() => {
-    filteredProjects.map(renderFilteredProjectCards);
-  }, []);
 
   const inputHandler = (value) => {
     setInputValue(value.toLowerCase());
