@@ -28,6 +28,10 @@ const Projects = () => {
     setInputValue(localStorage.getItem("inputProjectsValue"));
   }, []);
 
+  useEffect(() => {
+    filteredProjects.map(renderFilteredProjectCards);
+  }, []);
+
   const inputHandler = (value) => {
     setInputValue(value.toLowerCase());
     localStorage.setItem("inputProjectsValue", value);
