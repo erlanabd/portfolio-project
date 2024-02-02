@@ -77,7 +77,7 @@ const Projects = () => {
       <div className={styles["cards-wrap"]}>
         {filteredProjects.map(renderFilteredProjectCards)}
       </div>
-      {filteredProjects.length === 0 && (
+      {filteredProjects.length === 0 && inputValue === "" && (
         <EmptyList icon="false" theme={theme} />
       )}
     </div>
