@@ -57,7 +57,7 @@ const Skills = () => {
       <div className={styles["skills-list"]}>
         {filteredSkills.map(renderFilteredSkills)}
       </div>
-      {filteredSkills.length === 0 && (
+      {inputValue && filteredSkills.length === 0 && (
         <EmptyList
           icon="false"
           theme={theme}
