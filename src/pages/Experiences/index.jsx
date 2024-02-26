@@ -30,8 +30,6 @@ const Experiences = () => {
 
   useEffect(() => {
     dispatch(fetchExperiences());
-    setInputValue(localStorage.getItem("inputExperiencesValue"));
-    filteredExperiences.map(renderFilteredExperienceCards);
   }, []);
 
   const inputHandler = (value) => {
@@ -65,9 +63,9 @@ const Experiences = () => {
         {filteredExperiences.map(renderFilteredExperienceCards)}
         <div className={verticalLineClasses}></div>
       </div>
-      {/* {filteredExperiences.length === 0 && (
+      {filteredExperiences.length === 0 && (
         <EmptyList theme={theme} icon="true" className={styles["empty-list"]} />
-      )} */}
+      )}
     </div>
   );
 };
