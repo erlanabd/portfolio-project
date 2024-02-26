@@ -17,7 +17,6 @@ const fetchSkills = () => {
     try {
       // const req = await fetch('')
       // const data = await req.json()
-      // TODO: remove SKILLS_DATA when backend will be ready
       dispatch(getSkillsSuccess(SKILLS_DATA));
     } catch (e) {
       dispatch(getSkillsError(e));
@@ -32,7 +31,6 @@ const fetchSkillBySlug = (slug) => {
     try {
       // const req = await fetch('')
       // const data = await req.json()
-      // TODO: remove SKILLS_DATA when backend will be ready
       dispatch(getSkillSuccess(SHORT_SKILL_BY_SLUG(slug)));
     } catch (e) {
       dispatch(getSkillError(e));

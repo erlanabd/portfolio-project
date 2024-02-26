@@ -24,11 +24,13 @@ const Projects = () => {
   });
 
   useEffect(() => {
-    filteredProjects.map(renderFilteredProjectCards);
     dispatch(fetchProjects());
     setInputValue(localStorage.getItem("inputProjectsValue"));
   }, []);
 
+  useEffect(() => {
+    filteredProjects.map(renderFilteredProjectCards);
+  }, [filteredProjects]);
 
   const inputHandler = (value) => {
     setInputValue(value.toLowerCase());
@@ -79,7 +81,7 @@ const Projects = () => {
       <div className={styles["cards-wrap"]}>
         {filteredProjects.map(renderFilteredProjectCards)}
       </div>
-      {filteredProjects.length === 0 && (
+      {inputValue && filteredProjects.length === 0 && (
         <EmptyList icon="false" theme={theme} />
       )}
     </div>
