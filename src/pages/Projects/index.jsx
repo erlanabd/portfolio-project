@@ -25,7 +25,6 @@ const Projects = () => {
 
   useEffect(() => {
     dispatch(fetchProjects());
-    setInputValue(localStorage.getItem("inputProjectsValue"));
   }, []);
 
   const inputHandler = (value) => {

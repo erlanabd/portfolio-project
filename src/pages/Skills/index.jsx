@@ -25,8 +25,6 @@ const Skills = () => {
 
   useEffect(() => {
     dispatch(fetchSkills());
-    setInputValue(localStorage.getItem("inputSkillsValue"));
-    filteredSkills.map(renderFilteredSkills);
   }, []);
 
   const inputHandler = (value) => {

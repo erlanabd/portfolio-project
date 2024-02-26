@@ -30,8 +30,6 @@ const Education = () => {
 
   useEffect(() => {
     dispatch(fetchEducation());
-    setInputValue(localStorage.getItem("inputExperiencesValue"));
-    filteredEducation.map(renderFilteredEducationCards);
   }, []);
 
   const inputHandler = (value) => {
@@ -61,7 +59,7 @@ const Education = () => {
         {filteredEducation.map(renderFilteredEducationCards)}
         <div className={verticalLineClasses}></div>
       </div>
-      {filteredEducation.length === 0 && (
+      {inputValue && filteredEducation.length === 0 && (
         <EmptyList icon="true" theme={theme} className={styles["empty-list"]} />
       )}
     </div>
